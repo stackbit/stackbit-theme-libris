@@ -1,0 +1,28 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  <article class="post page post-full">
+    <header class="post-header bg-gradient outer">
+      {% if page.params.img_path %}
+      <div class="bg-img" style="background-image: url('{{ page.params.img_path | relative_url }}')"></div>
+      {% endif %}
+      <div class="inner-small">
+        <h1 class="post-title">{{ page.params.title }}</h1>
+        {% if page.params.subtitle %}
+        <div class="post-subtitle">
+          {{ page.params.subtitle | safe }}
+        </div><!-- .post-subtitle -->
+        {% endif %}
+      </div><!-- .inner-small -->
+    </header><!-- .post-header -->
+    <div class="outer">
+      <div class="inner-medium">
+        <div class="post-content">
+          {{ page.content }}
+        </div><!-- .post-content -->
+      </div><!-- .inner-medium -->
+    </div><!-- .outer-->
+  </article><!-- .post -->
+
+{% endblock %}

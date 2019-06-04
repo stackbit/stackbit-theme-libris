@@ -1,0 +1,26 @@
+baseurl: "/"
+title: "Stackbit Libris Theme"
+page_load_js: "assets/js/main.js"
+params:
+  palette: light-blue
+  header:
+    title: Libris
+    logo_img: images/logo.svg
+    has_nav: true
+    menu:
+      actions:
+        - label: GitHub
+          url: "https://github.com/"
+  footer:
+    content: "&copy; Stackbit-Libris. All rights reserved."
+    links:
+      - text: Made with Stackbit
+        url: https://www.stackbit.com
+        new_window: true
+    has_social: true
+sass:
+  input_file: sass/main.scss.njk
+  output_file: assets/css/main.css
+  indentWidth: 4
+  outputStyle: nested
+  precision: 10

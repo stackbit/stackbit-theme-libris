@@ -1,0 +1,42 @@
+<header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+      <div id="site-branding" class="site-branding">
+        {% if site.params.header.logo_img %}
+        <p class="site-logo">
+          <a href="{{ site.baseurl | relative_url }}">
+            <img src="{{ site.params.header.logo_img | relative_url }}" alt="Logo" />
+          </a>
+        </p><!-- .site-logo -->
+        {% endif %}
+        {% if page.template == "home" %}
+        <h1 class="site-title"><a href='{{ site.baseurl | relative_url }}'>{{ site.params.header.title }}</a></h1>
+        {% else %}
+        <p class="site-title"><a href='{{ site.baseurl | relative_url }}'>{{ site.params.header.title }}</a></p>
+        {% endif %}
+      </div><!-- .site-branding -->
+      {% if site.menus.main and site.params.header.has_nav %}
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            {% for item in site.menus.main %}
+            <li class="menu-item {% if page.url == item.url %} current-menu-item{% endif %}">
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            </li>
+            {% endfor %}
+            {% if site.params.header.menu.actions %}
+              {% for action in site.params.header.menu.actions %}
+              <li class="menu-item">
+                <a href="{{ action.url | relative_url }}">{{ action.label }}</a>
+              </li>
+              {% endfor %}
+            {% endif %}
+          </ul><!-- .menu -->
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+      {% endif %}
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->

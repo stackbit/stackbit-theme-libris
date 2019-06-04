@@ -1,0 +1,29 @@
+sections:
+  - title: About
+    subtitle: Libris is a Unibit theme created for project documentations. You can use it for your project.
+    type: collection
+    path: /about
+  - title: Getting Started
+    subtitle: In this section you'll find basic information about Libris and how to use it.
+    type: collection
+    path: /getting-started
+  - title: UI Components
+    subtitle: To make it easy to write documentation in plain Markdown, most UI components are styled using Markdown elements with few additional CSS classes.
+    type: collection
+    path: /ui-components
+  - title: Manage Content
+    subtitle: In this section you'll learn how to add syntax highlighting, examples, callouts and much more.
+    type: page
+    path: /manage-content.md
+  - title: Tools
+    subtitle: See some interesting tools developed by the Libris community to help automate parts of your workflow.
+    type: collection
+    path: /tools  
+  - title: FAQ
+    subtitle: In this section you'll find commonly asked questions regarding the Libris theme. If you have questions, don’t hesitate to ask us directly.
+    type: page
+    path: /faq.md
+  - title: Community
+    subtitle: We'd love it if you participate in the Libris community. Find out how to get connected.
+    type: page
+    path: /community.md
