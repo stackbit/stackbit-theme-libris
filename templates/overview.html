@@ -1,0 +1,48 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  <header class="page-header bg-gradient outer">
+    {% if page.params.img_path %}
+    <div class="bg-img" style="background-image: url('{{ page.params.img_path | relative_url }}')"></div>
+    {% endif %}
+    <div class="inner-small">
+      <h1 class="page-title">{{ page.params.title }}</h1>
+      {% if page.params.subtitle %}
+      <p class="page-subtitle">{{ page.params.subtitle }}</p>
+      {% endif %}
+    </div><!-- .inner-small -->
+  </header><!--.page-header -->
+
+  <div class="block docs-block outer">
+    <div class="inner">
+      <div class="block-items">
+        {% for section in site.data.toc.sections %}
+        <section class="block-item">
+          <div class="block-item-inside">
+            {% if section.type == "collection" %}
+              <h2 class="block-item-title line-left"><a href="{{ section.path | relative_url }}">{{ section.title }}</a></h2>
+              {% if section.subtitle %}
+              <p class="block-item-text">{{ section.subtitle | safe }}</p>
+              <p class="block-item-cta"><a href="{{ section.path | relative_url }}">Learn More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
+              {% endif %}
+            {% else %}
+              <h2 class="block-item-title"><a href="{{ getPage(section.path).url | relative_url }}">{{ section.title }}</a></h2>
+              {% if section.subtitle %}
+              <p class="block-item-text">{{ section.subtitle | safe }}</p>
+              <p class="block-item-cta"><a href="{{ getPage(section.path).url | relative_url }}">Learn More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
+              {% endif %}
+            {% endif %}
+          </div><!-- .block-item-inside -->
+        </section><!-- .block-item -->
+        {% endfor %}
+      </div><!-- .block-items -->
+    </div><!-- .inner -->
+  </div><!-- .docs-block -->
+
+  {% for section in page.params.sections %}
+    {% set include_dict = {'section': section, 'site': site} %}
+    {% include section.component %}
+  {% endfor %}
+
+{% endblock %}

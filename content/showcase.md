@@ -20,9 +20,5 @@ items:
     subtitle: Medium inspired blogging theme
     preview_img: images/9.jpg
     url: "https://themes.stackbit.com/demos/ampersand/"
-menus:
-  main:
-    weight: 4
-    title: Showcase
 template: showcase
 ---

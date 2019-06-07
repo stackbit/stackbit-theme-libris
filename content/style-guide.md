@@ -5,7 +5,7 @@ subtitle: >-
 img_path: images/5.jpg
 menus:
   main:
-    weight: 5
+    weight: 4
     title: Style Guide
 template: page
 ---

@@ -45,7 +45,7 @@ if (docsNav) {
   let navItems = docsNav.getElementsByTagName('li');
   for (var i = 0; i < navItems.length; i++) {
     if (navItems[i].classList.contains('current')) {
-      navItems[i].parentNode.parentNode.classList.add('current-parent', 'active');
+      navItems[i].parentNode.parentNode.classList.add('active');
     }
   }
 

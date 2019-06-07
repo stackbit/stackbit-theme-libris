@@ -7,10 +7,6 @@ params:
     title: Libris
     logo_img: images/logo.svg
     has_nav: true
-    menu:
-      actions:
-        - label: GitHub
-          url: "https://github.com/"
   footer:
     content: "&copy; Stackbit-Libris. All rights reserved."
     links:
@@ -18,6 +14,25 @@ params:
         url: https://www.stackbit.com
         new_window: true
     has_social: true
+menus:
+  main:
+    - identifier: layouts
+      title: Sample Layouts
+      url: "#"
+      weight: 5
+    - identifier: github
+      title: GitHub
+      url: "https://github.com/"
+      weight: 6
+  layouts:
+    - identifier: layout1
+      title: Overview
+      weight: 1
+      url: overview.html
+    - identifier: layout2
+      title: Showcase
+      weight: 2
+      url: showcase.html
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css

@@ -36,16 +36,6 @@ models:
             label: Enable Navigation Menu
             description: Display the navigation menu bar in the header.
             default: true
-          - type: object
-            name: menu
-            label: Menu Action Buttons
-            fields:
-              - type: list
-                name: actions
-                label: Action Buttons
-                description: The action buttons displayed in the menu.
-                items:
-                  type: action
       - type: object
         name: footer
         label: Footer Configuration
@@ -126,7 +116,7 @@ models:
   toc:
     type: data
     file: toc.yml
-    label: Docs TOC
+    label: Documentation Sections
     fields:
       - type: list
         name: sections
@@ -151,6 +141,41 @@ models:
             - type: string
               name: path
               label: Path
+  docs:
+    type: page
+    label: Docs
+    template: docs
+    file: docs/index.md
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+  docs_parent:
+    type: page
+    label: Docs Parent Page
+    template: docs_parent
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+  docs_single:
+    type: page
+    label: Docs Page
+    template: docs_single
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: number
+        name: nav_order
+        label: Navigation order
   blog:
     type: page
     label: Blog
@@ -172,48 +197,6 @@ models:
         name: img_path
         label: Image
         description: The image shown in the background of the page header.
-  docs:
-    type: page
-    label: Docs
-    template: docs
-    file: docs.md
-    hideContent: true
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
-      - type: string
-        name: subtitle
-        label: Subtitle
-        description: The text shown just below the page title.
-      - type: image
-        name: img_path
-        label: Image
-        description: The image shown in the background of the page header.
-      - type: list
-        name: sections
-        label: Sections
-        description: Home page sections.
-        items:
-          type: reference
-          labelField: title
-          models: [contentblock, ctablock]
-  docs_single:
-    type: page
-    label: Docs Page
-    template: docs_single
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
-      - type: number
-        name: nav_order
-        label: Navigation order
   home:
     type: page
     label: Home
@@ -285,6 +268,35 @@ models:
         name: excerpt
         label: Excerpt
         description: The excerpt of the post displayed in the blog feed.
+  overview:
+    type: page
+    label: Overview
+    template: overview
+    file: overview.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+      - type: list
+        name: sections
+        label: Sections
+        description: Home page sections.
+        items:
+          type: reference
+          labelField: title
+          models: [contentblock, ctablock]
   showcase:
     type: page
     label: Showcase

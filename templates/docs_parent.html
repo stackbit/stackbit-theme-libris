@@ -21,6 +21,12 @@
             </header><!-- .post-header -->
             <div class="post-content">
               {{ page.content }}
+              {% set section_pages = getPages(page.relDir) | where("nav_order") | sort(false, true, "nav_order") %}
+              <ul>
+              {% for section_page in section_pages %}
+                <li><a href="{{ section_page.url | relative_url }}">{{ section_page.title }}</a></li>
+              {% endfor %}
+              </ul>
             </div><!-- .post-content -->
           </div><!-- .post-inside -->
         </article><!-- .post -->

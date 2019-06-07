@@ -1,5 +1,5 @@
 ---
-title: Docs
+title: Overview
 subtitle: >-
   An optional subtitle
 img_path: images/5.jpg
@@ -13,9 +13,5 @@ sections:
     actions:
       - label: Get Started
         url: "/getting-started/installation.html"
-menus:
-  main:
-    weight: 2
-    title: Docs
-template: docs
+template: overview
 ---
