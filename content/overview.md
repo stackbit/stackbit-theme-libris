@@ -13,5 +13,9 @@ sections:
     actions:
       - label: Get Started
         url: "/getting-started/installation.html"
+menus:
+  layouts:
+    weight: 1
+    title: Overview
 template: overview
 ---

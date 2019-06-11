@@ -24,15 +24,6 @@ menus:
       title: GitHub
       url: "https://github.com/"
       weight: 6
-  layouts:
-    - identifier: layout1
-      title: Overview
-      weight: 1
-      url: overview.html
-    - identifier: layout2
-      title: Showcase
-      weight: 2
-      url: showcase.html
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css

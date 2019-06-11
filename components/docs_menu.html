@@ -3,7 +3,8 @@
   {% set page = include_dict.page %}
   {% for section in site.data.toc.sections %}
     {% if section.type == "collection" %}
-      <li class="toc-item has-children{% if page.url == section.path %} current{% endif %}">
+      {% set section_path = section.path | replace_regexp("^/", "") %}
+      <li class="toc-item has-children{% if page.relDir == section_path %} current{% endif %}">
         <a href="{{ section.path | relative_url }}">{{ section.title }}</a>
         {% set section_pages = getPages(section.path) | where("nav_order") | sort(false, true, "nav_order") %}
         {% if section_pages | length > 0 %}
