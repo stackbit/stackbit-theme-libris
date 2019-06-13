@@ -5,15 +5,8 @@
   <div class="outer">
     <div class="inner">
       <div class="docs-content">
-        <nav id="docs-nav" class="docs-nav">
-          <div id="docs-nav-inside" class="docs-nav-inside sticky">
-            <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
-            <div class="docs-toc-wrap">
-              {% set include_dict = {"page": page, "site": site} %}
-              {% include "docs_menu.html" %}
-            </div><!-- .docs-toc-wrap -->
-          </div><!-- .docs-nav-inside -->
-        </nav><!-- .docs-nav -->
+        {% set include_dict = {"page": page, "site": site} %}
+        {% include "docs_menu.html" %}
         <article class="post type-docs">
           <div class="post-inside">
             <header class="post-header">

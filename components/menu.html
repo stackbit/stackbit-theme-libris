@@ -1,11 +1,11 @@
-<ul>
+<ul class="{{ include_dict.menu_class }}">
   {% for item in include_dict.menu %}
-  <li class="menu-item{% if item.children | length > 0 %} has-children{% endif %}{% if include_dict.page.url == item.url %} current-menu-item{% endif %}">
+  <li class="menu-item{% if item.children | length > 0 %} has-children{% endif %}{% if include_dict.page.url == item.url %} current{% endif %}">
     <a href="{% if item.url | starts_with('#') %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.title }}</a>
     {% if item.children | length > 0 %}
       {% set menu = item.children %}
       {% set page = include_dict.page %}
-      {% set include_dict = {"menu": menu, "page": page} %}
+      {% set include_dict = {"menu": menu, "menu_class": "submenu", "page": page} %}
       {% include "menu.html" %}
     {% endif %}
   </li>

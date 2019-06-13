@@ -2,7 +2,7 @@
  * Content
  * ----------------------------------------------------------------------------
  */
-.post {
+ .post {
   margin-bottom: 2.5em;
 
   &.post-full {
@@ -10,35 +10,35 @@
       margin-bottom: 5.625em;
     }
   }
+ }
 
-  .post-title {
-    a {
-      border: 0;
-      color: inherit;
-  
-      &:hover,
-      &:focus {
-        color: _palette(meta);
-      }
+ .page-header,
+ .post-full .post-header {
+   color: #fff;
+   padding-bottom: 9.5em;
+   padding-top: 3.75em;
+   position: relative;
+   text-align: center;
+ }
+ 
+ .page-title,
+ .post-full .post-title {
+   color: inherit;
+   font-size: 3rem;
+   margin: 0;
+   position: relative;
+ }
+
+ .post-title {
+  a {
+    border: 0;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      color: _palette(meta);
     }
   }
-}
-
-.page-header,
-.post-full .post-header {
-  color: #fff;
-  padding-bottom: 9.5em;
-  padding-top: 3.75em;
-  position: relative;
-  text-align: center;
-}
-
-.page-title,
-.post-full .post-title {
-  color: inherit;
-  font-size: 3rem;
-  margin: 0;
-  position: relative;
 }
 
 .page-subtitle,
@@ -84,6 +84,10 @@
 
   .post {
     padding: 0 0 2.5em;
+
+    @media only screen and (max-width: 1200px) {
+      margin-bottom: 3vw;
+    }
   }
 
   .post-thumbnail {
@@ -133,7 +137,6 @@
   .read-more-link {
     border: 0;
     color: _palette(accent);
-    font-size: 0.875rem;
   }
 }
 
@@ -153,7 +156,7 @@
   .page-number {
     color: _palette(meta);
     -webkit-flex-grow: 1;
-    -ms-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -221,8 +224,7 @@
   }
 }
 
-
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
   .page-title,
   .post-full .post-title {
     font-size: 2.25rem;

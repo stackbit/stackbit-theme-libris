@@ -1,11 +1,11 @@
 ---
 title: Starter Theme
 nav_order: 1
-template: docs_single
+template: docs
 ---
 
 <div class="note">
-  <strong>Note:</strong> This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <a href="/getting-started/quick-start.html">Getting Started</a> section.
+  <strong>Note:</strong> This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <strong>Getting Started</strong> section.
 </div>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget nullam non nisi est. Enim diam vulputate ut pharetra sit amet. Malesuada fames ac turpis egestas integer eget aliquet nibh praesent. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Id leo in vitae turpis massa sed elementum. Sed elementum tempus egestas sed sed risus pretium quam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis.

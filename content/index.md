@@ -10,43 +10,55 @@ sections:
       This section can contain a subtitle or tagline. The recommended length is one to three sentences, but can be changed as you prefer.
     actions:
       - label: Get Started
-        url: "/docs.html"
+        url: "docs/index.html"
   - section_id: features
     component: "features_block.html"
     type: featuresblock
     featureslist:
-      - title: Docs
-        content: |-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh fringilla, fringilla tortor at, pulvinar orci.
-        actions:
-          - label: Learn More
-            url: "/docs.html"
-      - title: Showcase
+      - title: Documentation
         content: |-
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.
         actions:
-          - label: Learn More
-            url: "/showcase.html"
+          - label: Get Started
+            url: "/overview.html"
       - title: Blog
         content: |-
           Vestibulum a nunc ut eros condimentum posuere. Nullam dapibus quis nunc non interdum. Pellentesque tortor ligula, gravida ac commodo eu.
         actions:
-          - label: Learn More
+          - label: View Posts
             url: "blog/index.html"
+      - title: Style Guides
+        content: |-
+          Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.
+        actions:
+          - label: Learn More
+            url: "/style-guides.html"
+  - section_id: text-img
+    component: "content_block.html"
+    type: contentblock
+    image: images/10.jpg
+    title: A Section With An Image
+    content: |-
+      Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
+    actions:
+      - label: View Demo
+        url: "/getting-started/installation.html"
+      - label: Get Started
+        url: "/getting-started/installation.html"
   - section_id: features-two-col
     component: "features_block.html"
     type: featuresblock
-    title: Features
+    title: Sample Layouts
     subtitle: >-
       An optional subtitle of the section
     featureslist:
-      - title: Feature Title
+      - title: Overview
         content: |-
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh fringilla, fringilla tortor at, pulvinar orci.
         actions:
           - label: Learn More
-            url: "/docs.html"
-      - title: Feature Title
+            url: "/overview.html"
+      - title: Showcase
         content: |-
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.
         actions:
@@ -58,16 +70,6 @@ sections:
     title: The Title of The Call to Action Block
     subtitle: >-
       This is an optional description for the call to action block.
-    actions:
-      - label: Get Started
-        url: "/getting-started/installation.html"
-  - section_id: text-img
-    component: "content_block.html"
-    type: contentblock
-    image: images/10.jpg
-    title: A Section With An Image
-    content: |-
-      Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
     actions:
       - label: Get Started
         url: "/getting-started/installation.html"

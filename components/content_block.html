@@ -3,7 +3,7 @@
     <div class="block-inside">
       {% if include_dict.section.image %}
       <div class="block-preview">
-        <img src="{{ include_dict.section.image | relative_url }}" alt="{{ include_dict.section.title }}" />
+        <img class="thumbnail" src="{{ include_dict.section.image | relative_url }}" alt="{{ include_dict.section.title }}" />
       </div><!-- .block-preview -->
       {% endif %}
       <div class="block-content">
