@@ -20,7 +20,7 @@ sections:
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.
         actions:
           - label: Get Started
-            url: "/overview.html"
+            url: "docs/index.html"
       - title: Blog
         content: |-
           Vestibulum a nunc ut eros condimentum posuere. Nullam dapibus quis nunc non interdum. Pellentesque tortor ligula, gravida ac commodo eu.
@@ -32,7 +32,7 @@ sections:
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.
         actions:
           - label: Learn More
-            url: "/style-guides.html"
+            url: "/style-guide.html"
   - section_id: text-img
     component: "content_block.html"
     type: contentblock
@@ -42,9 +42,9 @@ sections:
       Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
     actions:
       - label: View Demo
-        url: "/getting-started/installation.html"
+        url: "/docs/getting-started/index.html"
       - label: Get Started
-        url: "/getting-started/installation.html"
+        url: "/docs/getting-started/index.html"
   - section_id: features-two-col
     component: "features_block.html"
     type: featuresblock

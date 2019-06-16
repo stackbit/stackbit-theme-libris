@@ -9,6 +9,10 @@
   &:last-child {
     padding-bottom: 1.875em;
   }
+
+  &:first-child {
+    padding-top: 3.75em;
+  }
 }
 
 .block-preview {

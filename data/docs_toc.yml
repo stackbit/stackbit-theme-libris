@@ -1,3 +1,6 @@
+root:
+  title: Welcome to Libris
+  path: /docs/index.md
 sections:
   - title: About
     subtitle: Libris is a Unibit theme created for project documentations. You can use it for your project.

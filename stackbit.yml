@@ -141,6 +141,19 @@ models:
     file: docs_toc.yml
     label: Documentation Sections
     fields:
+      - type: object
+        name: root
+        label: Root
+        description: The root of the documentation.
+        fields:
+          - type: string
+            name: title
+            label: Title
+            required: true
+          - type: string
+            name: path
+            label: Path
+            required: true
       - type: list
         name: sections
         label: Sections
@@ -164,6 +177,7 @@ models:
             - type: string
               name: path
               label: Path
+              required: true
   docs_parent:
     type: page
     label: Documentation Parent Pages

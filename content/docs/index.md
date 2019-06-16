@@ -1,5 +1,5 @@
 ---
-title: Docs
+title: Welcome to Libris
 menus:
   main:
     weight: 2

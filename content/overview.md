@@ -12,7 +12,7 @@ sections:
       This is an optional description for the call to action block.
     actions:
       - label: Get Started
-        url: "/getting-started/installation.html"
+        url: "/docs/getting-started/index.html"
 menus:
   layouts:
     weight: 1
