@@ -72,7 +72,7 @@ sections:
       This is an optional description for the call to action block.
     actions:
       - label: Get Started
-        url: "/getting-started/installation.html"
+        url: "/docs/getting-started/installation.html"
   - section_id: text-no-img
     component: "content_block.html"
     type: contentblock
@@ -81,7 +81,7 @@ sections:
       Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
     actions:
       - label: Get Started
-        url: "/getting-started/installation.html"
+        url: "/docs/getting-started/installation.html"
 menus:
   main:
     weight: 1
