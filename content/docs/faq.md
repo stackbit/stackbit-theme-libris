@@ -1,13 +1,13 @@
 ---
 title: FAQ
-template: docs_single
+template: docs
 ---
 
 This is an example of the FAQ page.
 
 <div class="note">
   <strong>Note:</strong> 
-  This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <a href="/getting-started/quick-start.html">Getting Started</a> section.
+  This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <strong>Getting Started</strong> section.
 </div>
 
 <hr />

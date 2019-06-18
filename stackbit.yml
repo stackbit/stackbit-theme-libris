@@ -18,70 +18,28 @@ models:
         label: Palette
         description: The palette of the theme.
         options:
-          - light-blue
-          - dark-blue
+          - blue
           - green
+          - navy
           - violet
-        default: light-blue
+        default: blue
       - type: object
-        name: header
-        label: Header Configuration
+        name: palettes
+        label: Palettes
+        hidden: true
         fields:
-          - type: string
-            name: title
-            label: Header Title
-            description: The title displayed in the header if no logo image added.
-          - type: image
-            name: logo_img
-            label: Logo Image
-            description: The logo image displayed in the header.
-          - type: boolean
-            name: has_nav
-            label: Enable Navigation Menu
-            description: Display the navigation menu bar in the header.
-            default: true
-          - type: object
-            name: menu
-            label: Menu Action Buttons
-            fields:
-              - type: list
-                name: actions
-                label: Action Buttons
-                description: The action buttons displayed in the menu.
-                items:
-                  type: action
-      - type: object
-        name: footer
-        label: Footer Configuration
-        fields:
-          - type: string
-            name: content
-            label: Footer Content
-            description: The copyright text displayed in the footer.
-          - type: list
-            name: links
-            label: Links
-            description: A list of links displayed in the footer.
-            items:
-              type: object
-              labelField: text
-              fields:
-                - type: string
-                  name: text
-                  label: Link text
-                - type: string
-                  name: url
-                  label: URL
-                  widget: url
-                - type: boolean
-                  name: new_window
-                  label: Open in new window
-                  default: true
-          - type: boolean
-            name: has_social
-            label: Enable Social Links
-            description: Display social links in the footer.
-            default: true
+          - type: palette
+            name: blue
+            label: Blue
+          - type: palette
+            name: green
+            label: Green
+          - type: palette
+            name: navy
+            label: Navy
+          - type: palette
+            name: violet
+            label: Violet
   author:
     type: data
     file: author.json
@@ -96,6 +54,61 @@ models:
       - type: image
         name: avatar
         label: Avatar
+  header:
+    type: data
+    file: header.yml
+    label: Header
+    fields:
+      - type: string
+        name: title
+        label: Header Title
+        description: The title displayed in the header if no logo image added.
+      - type: image
+        name: logo_img
+        label: Logo Image
+        description: The logo image displayed in the header.
+      - type: string
+        name: url
+        label: Header Title/Logo URL
+        description: The url of the header title/logo.
+      - type: boolean
+        name: has_nav
+        label: Enable Navigation Menu
+        description: Display the navigation menu bar in the header.
+        default: true
+  footer:
+    type: data
+    file: footer.yml
+    label: Footer
+    fields:
+      - type: string
+        name: content
+        label: Footer Content
+        description: The copyright text displayed in the footer.
+      - type: list
+        name: links
+        label: Links
+        description: A list of links displayed in the footer.
+        items:
+          type: object
+          labelField: text
+          fields:
+            - type: string
+              name: text
+              label: Link text
+            - type: string
+              name: url
+              label: URL
+              widget: url
+            - type: boolean
+              name: new_window
+              label: Open in new window
+              default: true
+      - type: boolean
+        name: has_social
+        label: Enable Social Links
+        description: Display social links in the footer.
+        default: true
   social:
     type: data
     file: social.json
@@ -127,11 +140,24 @@ models:
               label: URL
               widget: url
               required: true
-  toc:
+  docs_toc:
     type: data
-    file: toc.yml
-    label: Docs TOC
+    file: docs_toc.yml
+    label: Documentation Sections
     fields:
+      - type: object
+        name: root
+        label: Root
+        description: The root of the documentation.
+        fields:
+          - type: string
+            name: title
+            label: Title
+            required: true
+          - type: string
+            name: path
+            label: Path
+            required: true
       - type: list
         name: sections
         label: Sections
@@ -157,62 +183,21 @@ models:
             - type: string
               name: path
               label: Path
-  blog:
+              required: true
+  docs_parent:
     type: page
-    label: Blog
-    template: blog
-    file: blog/index.md
-    hideContent: true
-    singleInstance: true
+    label: Documentation Parent Pages
+    template: docs_parent
     fields:
       - type: string
         name: title
         label: Title
         description: The title of the page.
         required: true
-      - type: string
-        name: subtitle
-        label: Subtitle
-        description: The text shown just below the page title.
-      - type: image
-        name: img_path
-        label: Image
-        description: The image shown in the background of the page header.
   docs:
     type: page
-    label: Docs
+    label: Documentation Pages
     template: docs
-    file: docs.md
-    hideContent: true
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
-      - type: string
-        name: subtitle
-        label: Subtitle
-        description: The text shown just below the page title.
-      - type: image
-        name: img_path
-        label: Image
-        description: The image shown in the background of the page header.
-      - type: list
-        name: sections
-        label: Sections
-        description: Home page sections.
-        items:
-          type: reference
-          labelField: title
-          models:
-            - contentblock
-            - ctablock
-  docs_single:
-    type: page
-    label: Docs Page
-    template: docs_single
     fields:
       - type: string
         name: title
@@ -247,6 +232,104 @@ models:
             - ctablock
             - featuresblock
             - heroblock
+  blog:
+    type: page
+    label: Blog
+    template: blog
+    file: blog/index.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+  overview:
+    type: page
+    label: Overview
+    template: overview
+    file: overview.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+      - type: list
+        name: sections
+        label: Sections
+        description: Home page sections.
+        items:
+          type: reference
+          labelField: title
+          models:
+            - contentblock
+            - ctablock
+  showcase:
+    type: page
+    label: Showcase
+    template: showcase
+    file: showcase.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+      - type: list
+        name: items
+        label: Items
+        description: Showcase items.
+        items:
+          type: object
+          label: item
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Title
+              description: The title of the item.
+            - type: string
+              name: subtitle
+              label: Subtitle
+              description: The subtitle of the item.
+            - type: image
+              name: preview_img
+              label: Preview Image
+              description: The preview image of the item.
+            - type: string
+              name: url
+              label: URL
+              description: The URL of the item.
   page:
     type: page
     label: Page
@@ -297,52 +380,6 @@ models:
         name: excerpt
         label: Excerpt
         description: The excerpt of the post displayed in the blog feed.
-  showcase:
-    type: page
-    label: Showcase
-    template: showcase
-    file: showcase.md
-    hideContent: true
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
-      - type: string
-        name: subtitle
-        label: Subtitle
-        description: The text shown just below the page title.
-      - type: image
-        name: img_path
-        label: Image
-        description: The image shown in the background of the page header.
-      - type: list
-        name: items
-        label: Items
-        description: Showcase items.
-        items:
-          type: object
-          label: item
-          labelField: title
-          fields:
-            - type: string
-              name: title
-              label: Title
-              description: The title of the item.
-            - type: string
-              name: subtitle
-              label: Subtitle
-              description: The subtitle of the item.
-            - type: image
-              name: preview_img
-              label: Preview Image
-              description: The preview image of the item.
-            - type: string
-              name: url
-              label: URL
-              description: The URL of the item.
   section:
     type: object
     label: Section
@@ -360,20 +397,6 @@ models:
         label: Component
         required: true
         hidden: true
-  action:
-    type: object
-    label: Action
-    labelField: label
-    fields:
-      - type: string
-        name: label
-        label: Label
-        required: true
-        description: The text displayed inside the button.
-      - type: string
-        name: url
-        label: Button URL
-        widget: url
   contentblock:
     type: object
     label: Content Section
@@ -465,6 +488,34 @@ models:
         label: Action Buttons
         items:
           type: action
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Label
+        required: true
+        description: The text displayed inside the button.
+      - type: string
+        name: url
+        label: Button URL
+        widget: url
+  palette:
+    type: object
+    label: Palette
+    fields:
+      - type: object
+        name: sass
+        label: SASS
+        fields:
+          - type: color
+            name: accent1
+            label: accent 1
+          - type: color
+            name: accent2
+            label: accent 2
 stackbit_banner:
   show_banner: true
   name: Libris

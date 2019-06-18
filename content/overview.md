@@ -1,5 +1,5 @@
 ---
-title: Docs
+title: Overview
 subtitle: >-
   An optional subtitle
 img_path: images/5.jpg
@@ -12,10 +12,10 @@ sections:
       This is an optional description for the call to action block.
     actions:
       - label: Get Started
-        url: "/getting-started/installation.html"
+        url: "/docs/getting-started/index.html"
 menus:
-  main:
-    weight: 2
-    title: Docs
-template: docs
+  layouts:
+    weight: 1
+    title: Overview
+template: overview
 ---

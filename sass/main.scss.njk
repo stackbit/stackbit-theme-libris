@@ -1,11 +1,12 @@
 
 // Font.
 $font: (
-  primary: ("Helvetica Neue", Helvetica, Arial, sans-serif),
+  primary: ("Lato", Helvetica, Arial, sans-serif),
   monospace: (Monaco, courier, monospace)
 );
 
 // Palette.
+{% set palette = site.params.palettes[site.params.palette].sass %}
 $palette: (
   primary:           #424b5f,
   secondary:         #283040,
@@ -14,14 +15,8 @@ $palette: (
   bg:                #f7f9fb,
   note:              #fcb41d,
   important:         #fc381d,
-  accent:            #00c6ff,
-  accent-alt:        #0072ff,
-  accent-blue:       #004e92,
-  accent-blue-alt:   #000428,
-  accent-green:      #12db5d,
-  accent-green-alt:  #11998e,
-  accent-violet:     #8e2de2,
-  accent-violet-alt: #4a00e0
+  accent:            {{ palette.accent1 }},
+  accent-alt:        {{ palette.accent2 }},
 );
 
 @import "imports/functions";
@@ -40,4 +35,3 @@ $palette: (
 @import "imports/blocks";
 @import "imports/footer";
 @import "imports/prism";
-@import "imports/palettes";

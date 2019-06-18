@@ -1,10 +1,11 @@
 ---
-title: Manage Content
-template: docs_single
+title: Features
+nav_order: 2
+template: docs
 ---
 
 <div class="note">
-  <strong>Note:</strong> This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <a href="/getting-started/quick-start.html">Getting Started</a> section.
+  <strong>Note:</strong> This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <strong>Getting Started</strong> section.
 </div>
 
 ### Syntax highlighting
@@ -96,3 +97,11 @@ You can build tables with markdown to help you organize information. To add a ta
 | ------| ----- |
 | Text  | Text  |
 | Text  | Text  |
+
+## Start using Libris theme
+
+We’ve packed this theme with powerful features to help you have awesome documentation for your current or next project.
+
+**Why not start using this theme today?**
+
+<a href="https://www.stackbit.com/" class="button">Join Stackbit</a>

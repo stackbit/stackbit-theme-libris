@@ -5,15 +5,8 @@
   <div class="outer">
     <div class="inner">
       <div class="docs-content">
-        <nav id="docs-nav" class="docs-nav">
-          <div id="docs-nav-inside" class="docs-nav-inside sticky">
-            <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
-            <div class="docs-toc-wrap">
-              {% set include_dict = {"page": page, "site": site} %}
-              {% include "docs_nav.html" %}
-            </div><!-- .docs-toc-wrap -->
-          </div><!-- .docs-nav-inside -->
-        </nav><!-- .docs-nav -->
+        {% set include_dict = {"page": page, "site": site} %}
+        {% include "docs_menu.html" %}
         <article class="post type-docs">
           <div class="post-inside">
             <header class="post-header">
@@ -21,6 +14,12 @@
             </header><!-- .post-header -->
             <div class="post-content">
               {{ page.content }}
+              {% set section_pages = getPages(page.relDir) | where("nav_order") | sort(false, true, "nav_order") %}
+              <ul class="docs-section-items">
+              {% for section_page in section_pages %}
+                <li class="docs-section-item"><a href="{{ section_page.url | relative_url }}" class="docs-item-link">{{ section_page.title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>
+              {% endfor %}
+              </ul><!-- .docs-section-pages -->
             </div><!-- .post-content -->
           </div><!-- .post-inside -->
         </article><!-- .post -->

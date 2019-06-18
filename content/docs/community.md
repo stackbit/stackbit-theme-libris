@@ -1,12 +1,12 @@
 ---
 title: Where To Get Support
 nav_order: 1
-template: docs_single
+template: docs
 ---
 
 <div class="note">
   <strong>Note:</strong> 
-  This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <a href="/getting-started/quick-start.html">Getting Started</a> section.
+  This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <strong>Getting Started</strong> section.
 </div>
 
 **Lorem ipsum dolor sit amet, consectetur adipiscing elit.** Donec ut nulla laoreet, finibus purus sit amet, ullamcorper felis. Aliquam sagittis consectetur ullamcorper. Ut dapibus ex a nibh euismod tincidunt. Vestibulum quam velit, placerat vel ipsum eget, vulputate aliquet nibh. Cras hendrerit, justo a sagittis pharetra, ante elit imperdiet quam, eget euismod mauris lacus at eros. Sed et est interdum leo ultricies feugiat non non est. Aenean sit amet sollicitudin tellus, at pellentesque massa. Vestibulum dapibus magna quis dui ultrices vestibulum.

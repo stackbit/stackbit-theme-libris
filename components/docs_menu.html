@@ -1,0 +1,36 @@
+<nav id="docs-nav" class="docs-nav">
+  <div id="docs-nav-inside" class="docs-nav-inside sticky">
+    <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
+    <div class="docs-toc-wrap">
+      <ul id="docs-toc" class="docs-toc">
+        {% set site = include_dict.site %}
+        {% set page = include_dict.page %}
+
+        {% set root_path = site.data.docs_toc.root.path | replace_regexp("^/", "") %}
+        <li {{ classNames('toc-item', {'current': page.relPath == root_path}) }}>
+          <a href="{{ getPage(site.data.docs_toc.root.path).url | relative_url }}">{{ site.data.docs_toc.root.title }}</a>
+        </li>
+
+        {% for section in site.data.docs_toc.sections %}
+          {% set section_path = section.path | replace_regexp("^/", "") %}
+          {% if section.type == "collection" %}
+            <li {{ classNames('toc-item', 'has-children', {'current active': page.relDir == section_path}) }}>
+              <a href="{{ section.path | relative_url }}">{{ section.title }}</a>
+              {% set section_pages = getPages(section.path) | where("nav_order") | sort(false, true, "nav_order") %}
+              {% if section_pages | length > 0 %}
+                <button class="submenu-toggle"><span class="screen-reader-text">Submenu</span><span class="icon-angle-right" aria-hidden="true"></span></button>
+                {% set include_dict = {"section_pages": section_pages, "page": page, "site": site} %}
+                {% include "docs_submenu.html" %}
+              {% endif %}
+            </li>
+          {% else %}
+            <li {{ classNames('toc-item', {'current': page.relPath == section_path}) }}>
+              <a href="{{ getPage(section.path).url | relative_url }}">{{ section.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+      </ul><!-- .docs-toc -->
+    </div><!-- .docs-toc-wrap -->
+  </div><!-- .docs-nav-inside -->
+</nav><!-- .docs-nav -->

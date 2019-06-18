@@ -2,22 +2,34 @@ baseurl: "/"
 title: "Stackbit Libris Theme"
 page_load_js: "assets/js/main.js"
 params:
-  palette: light-blue
-  header:
-    title: Libris
-    logo_img: images/logo.svg
-    has_nav: true
-    menu:
-      actions:
-        - label: GitHub
-          url: "https://github.com/"
-  footer:
-    content: "&copy; Stackbit-Libris. All rights reserved."
-    links:
-      - text: Made with Stackbit
-        url: https://www.stackbit.com
-        new_window: true
-    has_social: true
+  palette: blue
+  palettes:
+    blue:
+      sass:
+        accent1: "#00c6ff"
+        accent2: "#0072ff"
+    green:
+      sass:
+        accent1: "#12db5d"
+        accent2: "#11998e"
+    navy:
+      sass:
+        accent1: "#004e92"
+        accent2: "#000428"
+    violet:
+      sass:
+        accent1: "#8e2de2"
+        accent2: "#4a00e0"
+menus:
+  main:
+    - identifier: layouts
+      title: Sample Layouts
+      url: "#"
+      weight: 5
+    - identifier: github
+      title: GitHub
+      url: "https://github.com/"
+      weight: 6
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css

@@ -31,7 +31,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   margin: 0 0 1.875rem;
   overflow: auto;
-  padding: 1.5em;
+  padding: 1.5rem;
 }
 
 :not(pre) > code[class*="language-"],
@@ -159,7 +159,8 @@ div.code-toolbar > .toolbar span {
   background: _palette(border);
   color: _palette(primary);
   display: block;
-  font-size: .8em;
+  font-size: .75em;
+  line-height: 1.5;
   padding: .25em .5em;
 }
 

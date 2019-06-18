@@ -21,8 +21,8 @@ items:
     preview_img: images/9.jpg
     url: "https://themes.stackbit.com/demos/ampersand/"
 menus:
-  main:
-    weight: 4
+  layouts:
+    weight: 2
     title: Showcase
 template: showcase
 ---

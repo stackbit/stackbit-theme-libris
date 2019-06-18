@@ -1,4 +1,4 @@
-<section id="{{ include_dict.section.section_id }}" class="block features-block outer{% if include_dict.section.title or include_dict.section.subtitle %} has-header{% endif %}">
+<section id="{{ include_dict.section.section_id }}" {{ classNames('block', 'features-block', 'outer', {'has-header': include_dict.section.title or include_dict.section.subtitle}) }}>
   <div class="inner">
     <div class="block-inside">
       {% if include_dict.section.title or include_dict.section.subtitle %}
