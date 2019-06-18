@@ -1,5 +1,5 @@
-stackbitVersion: "~0.2.39"
-uploadDir: "images"
+stackbitVersion: ~0.2.39
+uploadDir: images
 metadata:
   title: Libris
   description: A documentation theme
@@ -17,7 +17,11 @@ models:
         name: palette
         label: Palette
         description: The palette of the theme.
-        options: [light-blue, dark-blue, green, violet]
+        options:
+          - light-blue
+          - dark-blue
+          - green
+          - violet
         default: light-blue
       - type: object
         name: header
@@ -146,7 +150,9 @@ models:
             - type: enum
               name: type
               label: Type
-              options: [collection, page]
+              options:
+                - collection
+                - page
               default: collection
             - type: string
               name: path
@@ -200,7 +206,9 @@ models:
         items:
           type: reference
           labelField: title
-          models: [contentblock, ctablock]
+          models:
+            - contentblock
+            - ctablock
   docs_single:
     type: page
     label: Docs Page
@@ -234,7 +242,11 @@ models:
         items:
           type: reference
           labelField: title
-          models: [contentblock, ctablock, featuresblock, heroblock]
+          models:
+            - contentblock
+            - ctablock
+            - featuresblock
+            - heroblock
   page:
     type: page
     label: Page
@@ -365,7 +377,8 @@ models:
   contentblock:
     type: object
     label: Content Section
-    extends: [section]
+    extends:
+      - section
     fields:
       - name: component
         default: content_block.html
@@ -385,7 +398,8 @@ models:
   ctablock:
     type: object
     label: Call to Action Section
-    extends: [section]
+    extends:
+      - section
     fields:
       - name: component
         default: cta_block.html
@@ -401,7 +415,8 @@ models:
   featuresblock:
     type: object
     label: Features Section
-    extends: [section]
+    extends:
+      - section
     fields:
       - name: component
         default: features_block.html
@@ -432,7 +447,8 @@ models:
   heroblock:
     type: object
     label: Hero Section
-    extends: [section]
+    extends:
+      - section
     fields:
       - name: component
         default: hero_block.html
@@ -449,3 +465,8 @@ models:
         label: Action Buttons
         items:
           type: action
+stackbit_banner:
+  show_banner: true
+  name: Libris
+  launch_url: 'https://app.stackbit.com/wizard?theme=libris'
+  github_url: 'https://github.com/stackbithq/stackbit-theme-libris'
