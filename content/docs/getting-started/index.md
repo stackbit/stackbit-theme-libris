@@ -1,6 +1,5 @@
 ---
 title: Getting Started
-weight: 2
 excerpt: In this section you'll find basic information about Libris and how to use it.
 template: docs
 ---

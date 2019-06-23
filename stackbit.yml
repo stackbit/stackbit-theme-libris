@@ -179,16 +179,16 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the page. Used both as navigation menu title and as page title.
+        description: The title of the page, used both as a page title and as a navigation menu title.
         required: true
       - type: number
         name: weight
         label: Weight
-        description: The navigation order of the documentation page. This value specifies the order of the page among pages of the same level.
+        description: The navigation order of the documentation page. This value is ignored for parent section pages.
       - type: string
         name: excerpt
         label: Excerpt
-        description: Short description of the documentation section. This value is used in overview page and applicable only to root sections.
+        description: Short description of the documentation section. This value is used in overview page and is ignored for child section pages.
   home:
     type: page
     label: Home
