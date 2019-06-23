@@ -23,6 +23,16 @@ For sections to appear inside navigation menu, they must be defined in
 inside `data` folder. The order of section in this list will define the
 appearance order in navigation menu.  
 
+`doc_sections.yml`:
+
+```yaml
+root_folder: docs
+sections:
+  - section_name_1
+  - section_name_2
+  - section_name_3
+```
+
 ### Layouts
 
 All page inside `docs` folder should use `docs` layout (`templates/docs.html`).

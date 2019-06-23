@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-nav_order: 2
+weight: 2
 template: docs
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Starter Theme
-nav_order: 1
+weight: 1
 template: docs
 ---
 

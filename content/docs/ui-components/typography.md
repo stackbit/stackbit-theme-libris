@@ -1,6 +1,6 @@
 ---
 title: Typography
-nav_order: 1
+weight: 1
 template: docs
 ---
 
