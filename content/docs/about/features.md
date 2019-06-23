@@ -1,6 +1,6 @@
 ---
 title: Features
-nav_order: 2
+weight: 2
 template: docs
 ---
 

@@ -159,55 +159,18 @@ models:
     file: docs_toc.yml
     label: Documentation Sections
     fields:
-      - type: object
-        name: root
-        label: Root
-        description: The root of the documentation.
-        fields:
-          - type: string
-            name: title
-            label: Title
-            required: true
-          - type: string
-            name: path
-            label: Path
-            required: true
+      - type: string
+        name: root_folder
+        label: Root Folder
+        description: The URL path under which the documentation pages will be generated.
+        default: docs
+        required: true
       - type: list
         name: sections
         label: Sections
-        description: The main sections of the documentation.
+        description: The main sections of the documentation. Every item must be the URL slug representing the section.
         items:
-          type: object
-          labelField: title
-          fields:
-            - type: string
-              name: title
-              label: Title
-              required: true
-            - type: string
-              name: subtitle
-              label: Subtitle
-            - type: enum
-              name: type
-              label: Type
-              options:
-                - collection
-                - page
-              default: collection
-            - type: string
-              name: path
-              label: Path
-              required: true
-  docs_parent:
-    type: page
-    label: Documentation Parent Pages
-    template: docs_parent
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
+          type: string
   docs:
     type: page
     label: Documentation Pages
@@ -216,11 +179,16 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the page.
+        description: The title of the page. Used both as navigation menu title and as page title.
         required: true
       - type: number
-        name: nav_order
-        label: Navigation order
+        name: weight
+        label: Weight
+        description: The navigation order of the documentation page. This value specifies the order of the page among pages of the same level.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: Short description of the documentation section. This value is used in overview page and applicable only to root sections.
   home:
     type: page
     label: Home

@@ -1,5 +1,7 @@
 ---
 title: Manage Content
+weight: 4
+excerpt: In this section you'll learn how to add syntax highlighting, examples, callouts and much more.
 template: docs
 ---
 

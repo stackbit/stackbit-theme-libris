@@ -1,6 +1,7 @@
 ---
 title: Where To Get Support
-nav_order: 1
+weight: 7
+excerpt: We'd love it if you participate in the Libris community. Find out how to get connected.
 template: docs
 ---
 
