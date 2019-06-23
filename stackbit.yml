@@ -154,9 +154,9 @@ models:
               label: URL
               widget: url
               required: true
-  docs_toc:
+  doc_sections:
     type: data
-    file: docs_toc.yml
+    file: doc_sections.yml
     label: Documentation Sections
     fields:
       - type: string

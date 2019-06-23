@@ -6,14 +6,14 @@
         {% set site = include_dict.site %}
         {% set page = include_dict.page %}
 
-        {% set root_page_path = site.data.docs_toc.root_folder | append("/index.md") %}
+        {% set root_page_path = site.data.doc_sections.root_folder | append("/index.md") %}
         {% set root_page = getPage(root_page_path) %}
         <li {{ classNames('toc-item', {'current': page.relPath == root_page.relPath}) }}>
           <a href="{{ root_page.url | relative_url }}">{{ root_page.title }}</a>
         </li>
 
-        {% for section in site.data.docs_toc.sections %}
-          {% set section_rel_folder = site.data.docs_toc.root_folder | append("/") | append(section) %}
+        {% for section in site.data.doc_sections.sections %}
+          {% set section_rel_folder = site.data.doc_sections.root_folder | append("/") | append(section) %}
           {% set section_abs_folder = "/" | append(section_rel_folder) %}
           {% set section_page_path = section_abs_folder | append("/index.md") %}
           {% set section_page = getPage(section_page_path) %}

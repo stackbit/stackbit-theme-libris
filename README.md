@@ -2,71 +2,97 @@
 
 A documentation theme for Stackbit.
 
-## Documentation
+## Theme Structure
 
-### Structure
+### Folder Structure
 
-All documentation pages are located in the `docs` folder. You should group the related documentation pages into sections and keep them in subfolders, like `docs/about` or `docs/getting-started`. Here is the example documentation structure:
+All documentation pages must be located inside the `docs` folder. Hierarchically,
+there are three type of pages with following naming pattern:
 
-```
-├── content
-│   ├── docs
-│   │   ├── about               [docs section]
-│   │   │   ├── features.md
-│   │   │   ├── index.md        [section parent page]
-│   │   │   └── overview.md
-│   │   ├── getting-started
-│   │   │   ├── index.md        [section parent page]
-│   │   │   ├── installation.md
-│   │   │   └── quick-start.md
-│   │   ├── community.md        [page with no children]
-│   │   ├── faq.md              [page with no children]
-│   │   └── index.md            [docs root page]
-│   │   └── ...
-│   ├── ...
-```
+- Documentation root page: `docs/index.md`
+- Parent section pages: `docs/<section_name>/index.md`
+- Child section pages: `docs/<section_name>/<page_name>.md` 
+
+If a section contains child pages, that section will be rendered with nested
+navigation list.
 
 ### Navigation
 
-The navigation of the documentation is displayed on the left side on the documentation pages and defined in the `docs_toc.yml` file located in the `data` folder.
+For sections to appear inside navigation menu, they must be defined in
+`sections` list inside "Documentation Sections" file `doc_sections.yml` located
+inside `data` folder. The order of section in this list will define the
+appearance order in navigation menu.  
 
-In `docs_toc.yml` you should specify the documentation root page and sections in the order you want them to appear in the navigation.
+### Layouts
 
-Root definition:
+All page inside `docs` folder should use `docs` layout (`templates/docs.html`).
+This layout is responsible for rendering the documentation navigation menu and
+uses several properties to control its appearance: 
 
-- `title` - the title that will be displayed in the documentation navigation
-- `path` - the page path relative to the `content` folder
+- `title`: apart from defining the page title, docs layout use this field to
+  label navigation menu items.
+- `weight`: defines the order of the child section page. This field is ignored
+  for parent section pages.
+- `excerpt`: Can be defined on a parent section pages to render the description
+  of the section in the Overview page (`overview.html`). This field is ignored
+  for child section pages. 
+ 
+ 
+### Example
 
-Sections definition:
-
-- `title` - the title that will be displayed in the documentation navigation
-- `subtitle` - the subtitle of the section used in the `overview` template ([see below](#additional-templates))
-- `type` - can be either `page` or `collection`. `collection` is specified for documentation subfolders, and `page` is specified for single documentation pages that have no children.
-- `path` - the page or subfolder path relative to the `content` folder
-
-### Templates
-
-There are two special templates for documentation pages:
-- `docs_parent`. Used for section parent pages.
-- `docs`. Used for all other documentation pages, including the documentation root page, section child pages and pages with no children.
-
-For section child pages you should define the `nav_order` parameter in the front matter so you could arrange them in the desired order. For instance:
-
-```
----
-title: Features
-nav_order: 2
-template: docs
----
-```
+Here is an example to a folder structure, several documentation pages and
+documentation sections:
 
 ```
----
-title: Overview
-nav_order: 1
-template: docs
----
+.
+├── data
+│   ├── doc_sections.yml
+│   └── ...
+├── content
+│   ├── docs
+│   │   ├── getting-started
+│   │   │   ├── index.md         [section parent page]
+│   │   │   ├── installation.md  [section child page]
+│   │   │   └── quick-start.md   [section child page]
+│   │   ├── guides
+│   │   │   ├── index.md         [section parent page]
+│   │   │   ├── features.md      [section child page]
+│   │   │   └── overview.md      [section child page]
+│   │   ├── faq
+│   │   │   └── index.md         [section parent page]
+│   │   └── index.md             [documentation root page]
+│   └── ...
+└── ...
 ```
+
+`content/docs/guides/overview.md`:
+
+    ---
+    title: Overview
+    weight: 1           # position guides/overview first
+    template: docs
+    ---
+   
+`content/docs/guides/features.md`:
+
+    ---
+    title: Features
+    weight: 2           # position guides/features second
+    template: docs
+    ---
+
+`data/doc_sections.yml`:
+
+```yaml
+root_folder: docs
+sections:
+  - getting-started
+  - guides
+  - faq
+```
+
+![Navigation Example](docs/libris-navigation-example.png "Navigation Example")
+
 
 ### Callouts
 
@@ -107,31 +133,28 @@ The items of the main menu located at the top can be defined either inside the p
 
 To add a page menu item, you should define the `menus` parametter in the front matter of the page. For instance:
 
-```
----
-title: Welcome to Libris
-menus:
-  main:
-    weight: 2
-    title: Docs
-template: docs
----
-```
+    ---
+    title: Welcome to Libris
+    menus:
+      main:
+        weight: 2
+        title: Docs
+    template: docs
+    ---
 
 To add a global menu item, you should define it inside the root `menus` field inside `config.yml`. For instance:
 
-```
-menus:
-  main:
-    - identifier: github
-      title: GitHub
-      url: "https://github.com/"
-      weight: 6
-```
+    menus:
+      main:
+        - identifier: github
+          title: GitHub
+          url: "https://github.com/"
+          weight: 6
 
 ## Additional Templates
 
-Besides the usual templates (`blog`, `page`, `post`) and documentation templates mentioned above (`docs`, `docs_parent`), there are two additional templates that can be used for pages:
+Besides the usual templates (`blog`, `page`, `post`) and documentation templatee mentioned above (`docs`), there are two
+additional templates that can be used for pages:
 
 - `overview` - used to list all the documentation sections in a neat grid.
 - `showcase` - used to showcase the users of your product.
