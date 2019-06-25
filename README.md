@@ -26,7 +26,7 @@ appearance order in navigation menu.
 `doc_sections.yml`:
 
 ```yaml
-root_folder: docs
+root_folder: /docs/
 sections:
   - section_name_1
   - section_name_2
@@ -94,7 +94,7 @@ documentation sections:
 `data/doc_sections.yml`:
 
 ```yaml
-root_folder: docs
+root_folder: /docs/
 sections:
   - getting-started
   - guides

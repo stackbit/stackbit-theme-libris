@@ -1,4 +1,4 @@
-root_folder: docs
+root_folder: /docs/
 sections:
   - about
   - getting-started
