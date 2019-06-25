@@ -16,7 +16,6 @@
               {{ page.content }}
               {% set root_page_path = site.data.doc_sections.root_folder | append("index.md") %}
               {% set current_page_path = "/" | append(page.relPath) %}
-              {{root_page_path}},{{current_page_path}}
               {% if root_page_path != current_page_path %}
                 {% set child_pages_path = "/" | append(page.relDir) %}
                 {% set child_pages = getPages(child_pages_path) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
