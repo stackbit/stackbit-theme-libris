@@ -162,13 +162,18 @@ models:
       - type: string
         name: root_folder
         label: Root Folder
-        description: The path under which the documentation pages will be generated. For example, set to "/" to put all documentation pages at root, or set to "/docs/" to put all documentation pages under "/docs/".
+        description: >-
+          The path under which the documentation pages will be generated. For
+          example, set to "/" to put all documentation pages at root, or set to
+          "/docs/" to put all documentation pages under "/docs/".
         default: /docs/
         required: true
       - type: list
         name: sections
         label: Sections
-        description: The main sections of the documentation. Every item must be the URL slug representing the section.
+        description: >-
+          The main sections of the documentation. Every item must be the URL
+          slug representing the section.
         items:
           type: string
   docs:
@@ -179,16 +184,22 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the page, used both as a page title and as a navigation menu title.
+        description: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
         required: true
       - type: number
         name: weight
         label: Weight
-        description: The navigation order of the documentation page. This value is ignored for parent section pages.
+        description: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
       - type: string
         name: excerpt
         label: Excerpt
-        description: Short description of the documentation section. This value is used in overview page and is ignored for child section pages.
+        description: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
   home:
     type: page
     label: Home
@@ -499,7 +510,7 @@ models:
             name: accent2
             label: accent 2
 stackbit_banner:
-  show_banner: true
+  show_banner: false
   name: Libris
   launch_url: 'https://app.stackbit.com/wizard?theme=libris'
   github_url: 'https://github.com/stackbithq/stackbit-theme-libris'
