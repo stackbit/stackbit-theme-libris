@@ -2,51 +2,79 @@
 
 A documentation theme for Stackbit.
 
+[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/wizard?privateThemeUrl=https://github.com/stackbithq/stackbit-theme-libris&theme=custom)
+
+## Unibit
+
+This theme is built using Unibit. Unibit is a static site generator that can be be imported into Stackbit and seamlessly converted into other static site generators and headless CMS. 
+
+[Unibit Documentation](https://docs.stackbit.com/unibit) | [Unibit Github Repo](https://github.com/stackbithq/unibit)
+
+## Quickstart
+
+```
+npm install -g @stackbit/unibit
+```
+
+Start the local development server. 
+
+```
+unibit develop
+```
+
+Compile a production build into the `public` folder.
+
+```
+unibit build
+```
+
 ## Theme Structure
 
-### Folder Structure
+### Editing & Adding Docs
 
-All documentation pages must be located inside the `docs` folder. Hierarchically,
-there are three type of pages with following naming pattern:
+All documentation pages must be located inside the `content/docs` folder. You can create folders inside this folder 1 level deep. For example:
 
 - Documentation root page: `docs/index.md`
 - Parent section pages: `docs/<section_name>/index.md`
 - Child section pages: `docs/<section_name>/<page_name>.md` 
 
-If a section contains child pages, that section will be rendered with nested
-navigation list.
+Documentation pages should contain the following front matter. `title` and `template` are required. 
 
-### Navigation
+```
+---
+- `title`: apart from defining the page title, docs layout use this field to
+  label navigation menu items.
+- `weight`: defines the order of the child section page. This field is ignored
+  for parent section pages.
+- `template`: docs
+- `excerpt`: Can be defined on a parent section pages to render the description
+  of the section in the Overview page (`overview.html`). This field is ignored
+  for child section pages. 
+---
+```
 
-For sections to appear inside navigation menu, they must be defined in
-`sections` list inside "Documentation Sections" file `doc_sections.yml` located
-inside `data` folder. The order of section in this list will define the
-appearance order in navigation menu.  
+All page inside the `content/docs` folder should use the `docs` layout (`templates/docs.html`).
+This layout is responsible for rendering the documentation navigation menu and
+uses several properties to control its appearance: 
+
+### Docs Menu
+
+For sections to appear in the docs sidebar menu they must be defined in `doc_sections.yml` located
+inside the `data` folder. The order of section in this list will define the appearance order in navigation menu.  
 
 `doc_sections.yml`:
 
 ```yaml
 root_folder: /docs/
 sections:
-  - section_name_1
-  - section_name_2
-  - section_name_3
+  - about
+  - getting-started
+  - ui-components
+  - manage-content
+  - tools
+  - faq
+  - community
 ```
-
-### Layouts
-
-All page inside `docs` folder should use `docs` layout (`templates/docs.html`).
-This layout is responsible for rendering the documentation navigation menu and
-uses several properties to control its appearance: 
-
-- `title`: apart from defining the page title, docs layout use this field to
-  label navigation menu items.
-- `weight`: defines the order of the child section page. This field is ignored
-  for parent section pages.
-- `excerpt`: Can be defined on a parent section pages to render the description
-  of the section in the Overview page (`overview.html`). This field is ignored
-  for child section pages. 
- 
  
 ### Example
 
@@ -136,6 +164,10 @@ if (condition) {
 }
 ```
 ````
+
+## Editing the Homepage
+
+The homepage content uses `content/index.md`. You can edit all of the homepage sections by editing this files front matter.
 
 ## Main Navigation
 
