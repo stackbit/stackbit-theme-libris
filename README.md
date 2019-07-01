@@ -7,7 +7,7 @@ A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demo
 ## Stackbit Theme
 Convert into other static site generators. Connect with any headless CMS. 
 
-This Stackbit theme is built using [Unibit](https://docs.stackbit.com/unibit) which enables Stackbit to convert it into any other Static Site Generator like Gatsby/Hugo/Jekyll etc. It includes a [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) file which defines a content model that can connect to modern headless CMS like Contentful/DatoCMS/Forestry/NetlifyCMS etc.
+This theme is built using [Unibit](https://docs.stackbit.com/unibit) which enables [Stackbit](https://www.stackbit.com) to seamlessly convert it to other static site generators like Gatsby/Hugo/Jekyll etc. It includes a [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) content model that automatically connects to headless CMS like Contentful/DatoCMS/Forestry/NetlifyCMS etc.
 
 ## Quickstart
 
