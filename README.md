@@ -4,16 +4,18 @@ A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demo
 
 [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-libris)
 
-## Unibit
+## Stackbit Theme
+Convert into other static site generators. Connect with any headless CMS. 
 
-This theme is built using Unibit. Unibit is a static site generator that can be be imported into Stackbit and seamlessly converted into other static site generators and headless CMS. 
-
-## Stackbit Theme [WIP]
-This Stackbit theme can be easily used to create a new website using the Stackbit Wizard [link?]. The theme is built according to the Unibit standard which enables Stackbit to convert it into any modern Static Site Generator like Gatsby/HugoJekyll/etc. It also includes a stackbit.yaml file describing the Theme's content model which enables Stackbit to provision and set the website up with many modern CMS like Contentful/DatoCMS/Forestry/NetlifyCMs/etc.
-
-[Unibit Documentation](https://docs.stackbit.com/unibit) | [Unibit Github Repo](https://github.com/stackbithq/unibit)
+This Stackbit theme is built using [Unibit](https://docs.stackbit.com/unibit) which enables Stackbit to convert it into any other Static Site Generator like Gatsby/Hugo/Jekyll etc. It includes a [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) file which defines a content model that can connect to modern headless CMS like Contentful/DatoCMS/Forestry/NetlifyCMS etc.
 
 ## Quickstart
+
+### CodeSandBox
+
+### Unibit CLI
+
+Develop locally using the Unibit CLI. 
 
 ```
 npm install -g @stackbit/unibit
@@ -31,7 +33,7 @@ Compile a production build into the `public` folder.
 unibit build
 ```
 
-## Theme Structure
+## Theme Documentation
 
 ### Editing & Adding Docs
 
