@@ -13,8 +13,6 @@ The themes [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/
 
 ## Quickstart
 
-### CodeSandBox
-
 ### Unibit CLI
 
 Develop locally using the Unibit CLI. 
@@ -34,6 +32,12 @@ Compile a production build into the `public` folder.
 ```
 unibit build
 ```
+
+### CodeSandBox
+
+Develop this theme in the browser using CodeSandbox.
+
+[Fork in CodeSandbox](https://codesandbox.io/s/github/stackbithq/stackbit-theme-universal)
 
 ## Theme Documentation
 
