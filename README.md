@@ -4,7 +4,7 @@ A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demo
 
 [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-libris)
 
-### Converting into other Static Site Generators
+### Converting into other static site generators
 This theme is built using [Unibit](https://docs.stackbit.com/unibit) which is a superset of popular static site generators. [Import](https://docs.stackbit.com/import-custom-theme/) this theme into Stackbit to seamlessly convert it to other static site generators like Gatsby/Hugo/Jekyll etc. 
 
 ### Connecting any headless CMS in minutes
@@ -33,15 +33,15 @@ Compile a production build into the `public` folder.
 unibit build
 ```
 
-### CodeSandBox
+### CodeSandbox
 
 Develop this theme in the browser using CodeSandbox.
 
 [Fork in CodeSandbox](https://codesandbox.io/s/github/stackbithq/stackbit-theme-libris)
 
-## Theme Documentation
+# Theme Documentation
 
-### Editing & Adding Docs
+### Editing & adding docs pages
 
 All documentation pages must be located inside the `content/docs` folder. You can create folders inside this folder 1 level deep. For example:
 
@@ -68,7 +68,7 @@ All page inside the `content/docs` folder should use the `docs` layout (`templat
 This layout is responsible for rendering the documentation navigation menu and
 uses several properties to control its appearance: 
 
-### Docs Menu
+### Docs menu
 
 For sections to appear in the docs sidebar menu they must be defined in `doc_sections.yml` located
 inside the `data` folder. The order of section in this list will define the appearance order in navigation menu.  
