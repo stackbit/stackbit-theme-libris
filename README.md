@@ -1,8 +1,8 @@
 # Libris
 
-A documentation theme for Stackbit.
+A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris)
 
-[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/wizard?privateThemeUrl=https://github.com/stackbithq/stackbit-theme-libris&theme=custom)
+[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-libris)
 
 ## Unibit
 
