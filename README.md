@@ -8,6 +8,9 @@ A documentation theme for Stackbit.
 
 This theme is built using Unibit. Unibit is a static site generator that can be be imported into Stackbit and seamlessly converted into other static site generators and headless CMS. 
 
+## Stackbit Theme [WIP]
+This Stackbit theme can be easily used to create a new website using the Stackbit Wizard [link?]. The theme is built according to the Unibit standard which enables Stackbit to convert it into any modern Static Site Generator like Gatsby/HugoJekyll/etc. It also includes a stackbit.yaml file describing the Theme's content model which enables Stackbit to provision and set the website up with many modern CMS like Contentful/DatoCMS/Forestry/NetlifyCMs/etc.
+
 [Unibit Documentation](https://docs.stackbit.com/unibit) | [Unibit Github Repo](https://github.com/stackbithq/unibit)
 
 ## Quickstart
