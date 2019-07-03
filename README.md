@@ -14,7 +14,7 @@ This theme is built using [Unibit](https://docs.stackbit.com/unibit) which is a 
 
 ### Pick your Headless CMS
 
-The included [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) file defines a universal content model for your content, front matter and data. Stackbit can automatically connect this theme to CMS like Contentful, DatoCMS, Forestry and Netlify CMS, etc.
+The included [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) file defines a universal content model for your content, front matter and data. Stackbit can automatically connect this theme to CMS like Contentful, DatoCMS, Forestry, Netlify CMS, etc.
 
 ## Quickstart
 
