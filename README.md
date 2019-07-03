@@ -4,12 +4,17 @@ A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demo
 
 [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-libris)
 
-### Converting into other static site generators
-This theme is built using [Unibit](https://docs.stackbit.com/unibit) which is a superset of popular static site generators. Import this theme into Stackbit to seamlessly convert it to other static site generators like Gatsby/Hugo/Jekyll etc. 
+### Stackbit Themes
 
-### Connecting any headless CMS in minutes
+Use this theme with [Stackbit](https://www.stackbit.com) to create a website powered by any combination of static site generator and headless CMS.
 
-The included [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) file defines a universal content model which maps the content, front-matter, data and layouts to a variety headless CMS like Contentful/DatoCMS/Forestry/NetlifyCMS etc without any additional setup.
+### Pick your Static Site Generator
+
+This theme is built using [Unibit](https://docs.stackbit.com/unibit) which is a superset of popular static site generators. Stackbit can transpile this theme into a Jekyll, Hugo or Gatsby site (more generators coming soon).
+
+### Pick your Headless CMS
+
+The included [stackbit.yaml](https://docs.stackbit.com/content-model/stackbit-yml/) file defines a universal content model for your content, front matter and data. Stackbit can automatically connect this theme to CMS like Contentful, DatoCMS, Forestry and Netlify CMS, etc.
 
 ## Quickstart
 
