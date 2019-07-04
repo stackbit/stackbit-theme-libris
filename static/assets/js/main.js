@@ -81,6 +81,15 @@ if (pageNav) {
 
   // Scroll to anchors
   let scroll = new SmoothScroll('[data-scroll]');
+  let hash = window.decodeURI(location.hash.replace('#', ''));
+  if (hash !== '') {
+    window.setTimeout( function(){
+      let anchor = document.getElementById(hash);
+      if (anchor) {
+        scroll.animateScroll(anchor);
+      }
+    }, 0);
+  }
 
   // Highlight current anchor
   let pageTocLinks = pageToc.getElementsByTagName('a');
