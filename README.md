@@ -1,6 +1,6 @@
 # Libris
 
-A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris)
+A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris/blue)
 
 [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-libris)
 
