@@ -1,0 +1,36 @@
+<section id="{{ include_dict.section.section_id }}" {{ classNames('block', 'features-block', 'outer', {'has-header': include_dict.section.title or include_dict.section.subtitle}) }}>
+  <div class="inner">
+    <div class="block-inside">
+      {% if include_dict.section.title or include_dict.section.subtitle %}
+      <div class="block-header">
+        {% if include_dict.section.title %}
+        <h2 class="block-title">{{ include_dict.section.title }}</h2>
+        {% endif %}
+        {% if include_dict.section.subtitle %}
+        <p class="block-subtitle">
+          {{ include_dict.section.subtitle | safe }}
+        </p>
+        {% endif %}
+      </div><!-- .block-header -->
+      {% endif %}
+      {% if include_dict.section.featureslist %}
+      <div class="block-items">
+        {% for feature in include_dict.section.featureslist %}
+        <section class="block-item">
+          <div class="block-item-inside">
+            <h3 class="block-item-title line-left">{{ feature.title }}</h3>
+            <div class="block-item-text">
+              {{ feature.content | markdownify }}
+            </div>
+            {% if feature.actions %}
+              {% set include_dict = {'actions': feature.actions} %}
+              {% include "cta_buttons.html" %}
+            {% endif %}
+          </div><!-- .block-item-inside -->
+        </section><!-- block-item -->
+        {% endfor %}
+      </div><!-- .block-items -->
+      {% endif %}
+    </div><!-- .block-inside -->
+  </div><!-- .inner -->
+</section><!-- .features-block -->

@@ -1,0 +1,44 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  <div class="outer">
+    <div class="inner">
+      <div class="docs-content">
+        {% set include_dict = {"page": page, "site": site} %}
+        {% include "docs_menu.html" %}
+        <article class="post type-docs">
+          <div class="post-inside">
+            <header class="post-header">
+              <h1 class="post-title line-left">{{ page.params.title }}</h1>
+            </header><!-- .post-header -->
+            <div class="post-content">
+              {{ page.content }}
+              {% set root_page_path = site.data.doc_sections.root_folder | append("index.md") %}
+              {% set current_page_path = "/" | append(page.relPath) %}
+              {% if root_page_path != current_page_path %}
+                {% set child_pages_path = "/" | append(page.relDir) %}
+                {% set child_pages = getPages(child_pages_path) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
+                {% set child_count = child_pages | length %}
+                {% set has_children = true if child_count > 0 else false %}
+                {% if has_children %}
+                  <ul class="docs-section-items">
+                    {% for child_page in child_pages %}
+                    <li class="docs-section-item"><a href="{{ child_page.url | relative_url }}" class="docs-item-link">{{ child_page.title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>
+                    {% endfor %}
+                  </ul><!-- .docs-section-pages -->
+                {% endif %}
+              {% endif %}
+            </div><!-- .post-content -->
+          </div><!-- .post-inside -->
+        </article><!-- .post -->
+        <nav id="page-nav" class="page-nav">
+          <div id="page-nav-inside" class="page-nav-inside sticky">
+            <h2 class="page-nav-title">Jump to Section</h2>
+          </div><!-- .page-nav-inside -->
+        </nav><!-- .page-nav -->
+      </div><!-- .docs-content -->
+    </div><!-- .inner-->
+  </div><!-- .outer -->
+
+{% endblock %}

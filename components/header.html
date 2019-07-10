@@ -1,0 +1,31 @@
+<header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+      <div class="site-branding">
+        {% if site.data.header.logo_img %}
+        <p class="site-logo">
+          <a href="{{ site.data.header.url | default('/', true) | relative_url }}">
+            <img src="{{ site.data.header.logo_img | relative_url }}" alt="Logo" />
+          </a>
+        </p><!-- .site-logo -->
+        {% endif %}
+        {% if page.template == "home" %}
+        <h1 class="site-title"><a href="{{ site.data.header.url | default('/', true) | relative_url }}">{{ site.data.header.title }}</a></h1>
+        {% else %}
+        <p class="site-title"><a href="{{ site.data.header.url | default('/', true) | relative_url }}">{{ site.data.header.title }}</a></p>
+        {% endif %}
+      </div><!-- .site-branding -->
+      {% if site.menus.main and site.data.header.has_nav %}
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          {% set menu = site.menus.main %}
+          {% set include_dict = {"menu": menu, "menu_class": "menu", "page": page} %}
+          {% include "menu.html" %}
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+      {% endif %}
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->

@@ -1,0 +1,37 @@
+<nav id="docs-nav" class="docs-nav">
+  <div id="docs-nav-inside" class="docs-nav-inside sticky">
+    <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
+    <div class="docs-toc-wrap">
+      <ul id="docs-toc" class="docs-toc">
+        {% set site = include_dict.site %}
+        {% set page = include_dict.page %}
+
+        {% set root_page_path = site.data.doc_sections.root_folder | append("index.md") %}
+        {% set root_page = getPage(root_page_path) %}
+        <li {{ classNames('toc-item', {'current': page.relPath == root_page.relPath}) }}>
+          <a href="{{ root_page.url | relative_url }}">{{ root_page.title }}</a>
+        </li>
+
+        {% for section in site.data.doc_sections.sections %}
+          {% set section_folder = site.data.doc_sections.root_folder | append(section) %}
+          {% set section_page_path = section_folder | append("/index.md") %}
+          {% set section_page = getPage(section_page_path) %}
+          {% set child_pages = getPages(section_folder) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
+          {% set child_count = child_pages | length %}
+          {% set has_children = true if child_count > 0 else false %}
+          {% set is_current_page = true if page.relPath == section_page.relPath else false %}
+          {% set is_active = true if (page.relDir == section_page.relDir or page.relPath == section_page.relPath) else false %}
+          <li {{ classNames('toc-item', {'has-children': has_children, 'current': is_current_page, 'active': is_active}) }}>
+            <a href="{{ section_page.url | relative_url }}">{{ section_page.title }}</a>
+            {% if has_children %}
+              <button class="submenu-toggle"><span class="screen-reader-text">Submenu</span><span class="icon-angle-right" aria-hidden="true"></span></button>
+              {% set include_dict = {"child_pages": child_pages, "page": page, "site": site} %}
+              {% include "docs_submenu.html" %}
+            {% endif %}
+          </li>
+        {% endfor %}
+
+      </ul><!-- .docs-toc -->
+    </div><!-- .docs-toc-wrap -->
+  </div><!-- .docs-nav-inside -->
+</nav><!-- .docs-nav -->

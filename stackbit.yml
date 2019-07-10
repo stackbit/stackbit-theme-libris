@@ -1,0 +1,516 @@
+stackbitVersion: ~0.2.39
+uploadDir: images
+metadata:
+  title: Libris
+  description: A documentation theme
+  author: Stackbit
+  authorURL: 'https://www.stackbit.com'
+  palettes:
+    blue:
+      images:
+        small: images/demo-256x192.png
+        large: images/demo-1024x768.png
+    green:
+      images:
+        small: images/demo-256x192.png
+        large: images/demo-1024x768.png
+    navy:
+      images:
+        small: images/demo-256x192.png
+        large: images/demo-1024x768.png
+    violet:
+      images:
+        small: images/demo-256x192.png
+        large: images/demo-1024x768.png
+models:
+  config:
+    type: config
+    label: Global Site Config
+    fields:
+      - type: enum
+        name: palette
+        label: Palette
+        description: The palette of the theme.
+        options:
+          - blue
+          - green
+          - navy
+          - violet
+        default: blue
+      - type: object
+        name: palettes
+        label: Palettes
+        hidden: true
+        fields:
+          - type: palette
+            name: blue
+            label: Blue
+          - type: palette
+            name: green
+            label: Green
+          - type: palette
+            name: navy
+            label: Navy
+          - type: palette
+            name: violet
+            label: Violet
+  author:
+    type: data
+    file: author.json
+    label: Author
+    fields:
+      - type: string
+        name: name
+        label: Name
+      - type: string
+        name: email
+        label: Email
+      - type: image
+        name: avatar
+        label: Avatar
+  header:
+    type: data
+    file: header.yml
+    label: Header
+    fields:
+      - type: string
+        name: title
+        label: Header Title
+        description: The title displayed in the header if no logo image added.
+      - type: image
+        name: logo_img
+        label: Logo Image
+        description: The logo image displayed in the header.
+      - type: string
+        name: url
+        label: Header Title/Logo URL
+        description: The url of the header title/logo.
+      - type: boolean
+        name: has_nav
+        label: Enable Navigation Menu
+        description: Display the navigation menu bar in the header.
+        default: true
+  footer:
+    type: data
+    file: footer.yml
+    label: Footer
+    fields:
+      - type: string
+        name: content
+        label: Footer Content
+        description: The copyright text displayed in the footer.
+      - type: list
+        name: links
+        label: Links
+        description: A list of links displayed in the footer.
+        items:
+          type: object
+          labelField: text
+          fields:
+            - type: string
+              name: text
+              label: Link text
+            - type: string
+              name: url
+              label: URL
+              widget: url
+            - type: boolean
+              name: new_window
+              label: Open in new window
+              default: true
+      - type: boolean
+        name: has_social
+        label: Enable Social Links
+        description: Display social links in the footer.
+        default: true
+  social:
+    type: data
+    file: social.json
+    label: Social Links
+    fields:
+      - type: list
+        name: links
+        label: Social Links
+        description: A list of social links displayed in the footer.
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: type
+              label: Type
+              hidden: true
+            - type: string
+              name: title
+              label: Title
+              required: true
+            - type: string
+              name: icon
+              label: Icon
+              description: Font Awesome icon class name.
+              required: true
+            - type: string
+              name: url
+              label: URL
+              widget: url
+              required: true
+  doc_sections:
+    type: data
+    file: doc_sections.yml
+    label: Documentation Sections
+    fields:
+      - type: string
+        name: root_folder
+        label: Root Folder
+        description: >-
+          The path under which the documentation pages will be generated. For
+          example, set to "/" to put all documentation pages at root, or set to
+          "/docs/" to put all documentation pages under "/docs/".
+        default: /docs/
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: >-
+          The main sections of the documentation. Every item must be the URL
+          slug representing the section.
+        items:
+          type: string
+  docs:
+    type: page
+    label: Documentation Pages
+    template: docs
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
+        required: true
+      - type: number
+        name: weight
+        label: Weight
+        description: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
+  home:
+    type: page
+    label: Home
+    template: home
+    file: index.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: Home page sections.
+        items:
+          type: reference
+          labelField: title
+          models:
+            - contentblock
+            - ctablock
+            - featuresblock
+            - heroblock
+  blog:
+    type: page
+    label: Blog
+    template: blog
+    file: blog/index.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+  overview:
+    type: page
+    label: Overview
+    template: overview
+    file: overview.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+      - type: list
+        name: sections
+        label: Sections
+        description: Home page sections.
+        items:
+          type: reference
+          labelField: title
+          models:
+            - contentblock
+            - ctablock
+  showcase:
+    type: page
+    label: Showcase
+    template: showcase
+    file: showcase.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown in the background of the page header.
+      - type: list
+        name: items
+        label: Items
+        description: Showcase items.
+        items:
+          type: object
+          label: item
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Title
+              description: The title of the item.
+            - type: string
+              name: subtitle
+              label: Subtitle
+              description: The subtitle of the item.
+            - type: image
+              name: preview_img
+              label: Preview Image
+              description: The preview image of the item.
+            - type: string
+              name: url
+              label: URL
+              description: The URL of the item.
+  page:
+    type: page
+    label: Page
+    template: page
+    exclude: posts/**
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown below the page title and subtitle.
+  post:
+    type: page
+    label: Post
+    template: post
+    folder: posts
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the post
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the post title.
+      - type: date
+        name: date
+        label: Date
+        required: true
+      - type: image
+        name: thumb_img_path
+        label: Featured Image
+        description: The image shown in the blog feed.
+      - type: image
+        name: content_img_path
+        label: Alt Featured Image
+        description: The image shown in the header background in the single post.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the post displayed in the blog feed.
+  section:
+    type: object
+    label: Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section.
+      - type: string
+        name: section_id
+        label: Element ID
+      - type: string
+        name: component
+        label: Component
+        required: true
+        hidden: true
+  contentblock:
+    type: object
+    label: Content Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: content_block.html
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
+      - type: image
+        name: image
+        label: Image
+        description: The image of the section.
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+  ctablock:
+    type: object
+    label: Call to Action Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: cta_block.html
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section.
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+  featuresblock:
+    type: object
+    label: Features Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: features_block.html
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section.
+      - type: list
+        name: featureslist
+        label: Features List
+        items:
+          type: object
+          label: Feature
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Title
+            - type: markdown
+              name: content
+              label: Content
+              description: The text content of the feature.
+            - type: list
+              name: actions
+              label: Action Buttons
+              items:
+                type: action
+  heroblock:
+    type: object
+    label: Hero Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: hero_block.html
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
+      - type: image
+        name: image
+        label: Image
+        description: The image shown in the background of the section.
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Label
+        required: true
+        description: The text displayed inside the button.
+      - type: string
+        name: url
+        label: Button URL
+        widget: url
+  palette:
+    type: object
+    label: Palette
+    fields:
+      - type: object
+        name: sass
+        label: SASS
+        fields:
+          - type: color
+            name: accent1
+            label: accent 1
+          - type: color
+            name: accent2
+            label: accent 2
+stackbit_banner:
+  show_banner: true
+  name: Libris
+  create_url: 'https://app.stackbit.com/wizard?theme=libris'
+  github_url: 'https://github.com/stackbithq/stackbit-theme-libris'

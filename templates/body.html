@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div id="page" class="site">
+  {% include "header.html" %}
+  <main id="content" class="site-content">
+    {% block content %}{% endblock %}
+  </main><!-- .site-content -->
+  {% include "footer.html" %}
+</div><!-- .site -->
+{% endblock %}

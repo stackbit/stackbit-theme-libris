@@ -1,0 +1,13 @@
+<ul class="{{ include_dict.menu_class }}">
+  {% for item in include_dict.menu %}
+  <li {{ classNames('menu-item', {'has-children': item.children | length > 0}, {'current': include_dict.page.url == item.url}) }}>
+    <a href="{% if item.url | starts_with('#') %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.title }}</a>
+    {% if item.children | length > 0 %}
+      {% set menu = item.children %}
+      {% set page = include_dict.page %}
+      {% set include_dict = {"menu": menu, "menu_class": "submenu", "page": page} %}
+      {% include "menu.html" %}
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

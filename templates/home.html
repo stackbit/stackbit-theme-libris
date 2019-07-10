@@ -1,0 +1,10 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+{% for section in page.params.sections %}
+  {% set include_dict = {'section': section, 'site': site} %}
+  {% include section.component %}
+{% endfor %}
+
+{% endblock %}

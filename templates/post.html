@@ -1,0 +1,56 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  <article class="post post-full">
+    <header class="post-header bg-gradient outer">
+      {% if page.params.content_img_path %}
+      <div class="bg-img" style="background-image: url('{{ page.params.content_img_path | relative_url }}')"></div>
+      {% endif %}
+      <div class="inner-small">
+        <div class="post-meta">
+          <time class="published" datetime="{{page.date | date_format("%Y-%m-%d %H:%M") }}">{{ page.date | date_format("%B %d, %Y") }}</time>
+        </div><!-- .post-meta -->
+        <h1 class="post-title">{{ page.params.title }}</h1>
+        {% if page.params.subtitle %}
+        <div class="post-subtitle">
+          {{ page.params.subtitle | safe }}
+        </div><!-- .post-subtitle -->
+        {% endif %}
+      </div><!-- .inner-small -->
+    </header><!-- .post-header -->
+    <div class="outer">
+      <div class="inner-medium">
+        <div class="post-content">
+          {{ page.content }}
+        </div><!-- .post-content -->
+      </div><!-- .inner-medium -->
+    </div><!-- .outer-->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <div class="outer">
+    <div class="inner-medium">
+      <nav class="read-next">
+        <h2 class="read-next-title line-left">Read Next</h2>
+        <div class="nav-links">
+          <article class="post">
+            <div class="post-meta">
+              <time class="published" datetime="">Previous post date</time>
+            </div>
+            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+          </article>
+          <article class="post">
+            <div class="post-meta">
+              <time class="published" datetime="">Next post date</time>
+            </div>
+            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+          </article>
+        </div>
+      </nav>
+    </div>
+  </div>
+  -->
+
+{% endblock %}
