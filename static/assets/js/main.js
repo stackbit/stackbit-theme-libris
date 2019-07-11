@@ -20,11 +20,6 @@ if (menuToggle) {
       e.preventDefault();
     }, false);
   }
-  window.addEventListener('resize', function () {
-    if (menuToggle.offsetParent === null) {
-      document.body.classList.remove('menu--opened');
-    }
-  }, false);
 }
 
 // Dropdown arrow
@@ -51,11 +46,6 @@ if (docsNav) {
   docsNavToggle.addEventListener('click', function (e) {
     document.body.classList.toggle('toc--opened');
     e.preventDefault();
-  }, false);
-  window.addEventListener('resize', function () {
-    if (docsNavToggle.offsetParent === null) {
-      document.body.classList.remove('toc--opened');
-    }
   }, false);
 
   // Submenu toggle

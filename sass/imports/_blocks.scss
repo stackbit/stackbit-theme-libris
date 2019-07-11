@@ -87,7 +87,7 @@
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
-      margin: 0 -2.25em;
+      margin: 0 -1.5vw;
     }
 
     .block-preview {
@@ -95,8 +95,8 @@
       -webkit-flex: 4;
       -ms-flex: 4;
       flex: 4;
-      padding-left: 2.25em;
-      padding-right: 2.25em;
+      padding-left: 1.5vw;
+      padding-right: 1.5vw;
       text-align: left;
 
       .thumbnail {
@@ -109,8 +109,8 @@
       -webkit-flex: 5;
       -ms-flex: 5;
       flex: 5;
-      padding-left: 2.25em;
-      padding-right: 2.25em;
+      padding-left: 1.5vw;
+      padding-right: 1.5vw;
       text-align: left;
 
       &:only-child {
@@ -126,6 +126,19 @@
           margin-left: 0;
         }
       }
+    }
+  }
+
+  @media only screen and (min-width: 1201px) {
+    .block-inside {
+      margin-left: -1.125em;
+      margin-right: -1.125em;
+    }
+
+    .block-preview,
+    .block-content {
+      padding-left: 1.125em;
+      padding-right: 1.125em;
     }
   }
 }
