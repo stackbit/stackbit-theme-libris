@@ -21,6 +21,7 @@
   "homepage": "https://docs.stackbit.com/unibit/",
   "dependencies": {
     "@stackbit/unibit": "~0.1.11",
+    "lodash": "^4.17.14",
     "nodemon": "^1.19.1"
   }
 }
