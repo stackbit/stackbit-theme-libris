@@ -512,5 +512,7 @@ models:
 stackbit_banner:
   show_banner: true
   name: Libris
-  create_url: 'https://app.stackbit.com/wizard?theme=libris'
+  create_url: 'https://app.stackbit.com/create?theme=libris'
   github_url: 'https://github.com/stackbithq/stackbit-theme-libris'
+pagesDir: content
+staticDir: static
