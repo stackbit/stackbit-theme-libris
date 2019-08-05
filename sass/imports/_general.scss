@@ -202,6 +202,27 @@ th {
   font-weight: bold;
 }
 
+.post-content {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  tbody,
+  thead {
+    width: 100%;
+  }
+
+  tr {
+    width: 100%;
+  }
+
+  td {
+    min-width: 140px;
+  }
+}
+
 /* Form fields */
 label {
   font-weight: bold;

@@ -93,10 +93,12 @@ There are two types of callouts availabale in this theme, **important** and **no
 
 You can build tables with markdown to help you organize information. To add a table, use three or more hyphens (---) to create each column’s header, and use pipes (|) to separate each column like in the example below.
 
-| Title | Title |
-| ------| ----- |
-| Text  | Text  |
-| Text  | Text  |
+| Name | Required | Type | Description |
+| ---- | --- | --- | --- |
+| type | Required | `enum` | The type of the model. Must be one of - `page`, `config`, `data`, `object` |
+| label | Required | `string` | The label of the model |
+| description | | `string` | Description of the model. Used by some CMS. |
+| fields | | `list` of `objects` | List of Field Models |
 
 ## Start using Libris theme
 
