@@ -1,5 +1,12 @@
-stackbitVersion: ~0.2.39
+stackbitVersion: ~0.2.0
+ssgName: unibit
+buildCommand: unibit build
+publishDir: output
+staticDir: static
 uploadDir: images
+dataDir: data
+pagesDir: content
+pageLayoutKey: layout
 metadata:
   title: Libris
   description: A documentation theme
@@ -514,5 +521,3 @@ stackbit_banner:
   name: Libris
   create_url: 'https://app.stackbit.com/create?theme=libris'
   github_url: 'https://github.com/stackbithq/stackbit-theme-libris'
-pagesDir: content
-staticDir: static
