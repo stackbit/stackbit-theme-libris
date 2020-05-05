@@ -39,6 +39,7 @@ if (submenu) {
 
 }
 
+
 let docsNav = document.getElementById('docs-nav');
 if (docsNav) {
   // Docs nav on small screens

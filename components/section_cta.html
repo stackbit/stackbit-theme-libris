@@ -1,0 +1,25 @@
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block block-cta outer">
+  <div class="inner">
+    <div class="has-gradient">
+      <div class="grid grid-middle grid-center">
+        {% if section.title or section.subtitle %}
+        <div class="grid-item block-header">
+          {% if section.title %}
+          <h2 class="block-title">{{ section.title }}</h2>
+          {% endif %}
+          {% if section.subtitle %}
+          <p class="block-subtitle">{{ section.subtitle | safe }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if section.actions %}
+        <div class="grid-item block-buttons">
+          {% set include_dict = {'actions': section.actions} %}
+          {% include "cta_buttons.html" %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section><!-- .block -->

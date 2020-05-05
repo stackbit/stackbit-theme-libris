@@ -2,6 +2,7 @@ baseurl: "/"
 title: "Stackbit Libris Theme"
 page_load_js: "assets/js/main.js"
 params:
+  description: A documentation theme
   palette: blue
   palettes:
     blue:
@@ -20,16 +21,66 @@ params:
       sass:
         accent1: "#8e2de2"
         accent2: "#4a00e0"
-menus:
-  main:
-    - identifier: layouts
-      title: Sample Layouts
-      url: "#"
-      weight: 5
-    - identifier: github
-      title: GitHub
-      url: "https://github.com/"
-      weight: 6
+  header:
+    title: Libris
+    logo_img: images/logo.svg
+    has_nav: true
+    nav_links:
+      - label: Home
+        url: /
+        type: link
+        has_subnav: false
+      - label: Docs
+        url: /docs/
+        type: link
+        has_subnav: false
+      - label: Blog
+        url: /blog/
+        type: link
+        has_subnav: false
+      - label: Sample Pages
+        url: "#"
+        type: link
+        has_subnav: true
+        subnav_links:
+          - label: Overview
+            url: /overview/
+            type: link
+          - label: Showcase
+            url: /showcase/
+            type: link
+      - label: Style Guide
+        url: /style-guide/
+        type: link
+        has_subnav: false
+      - label: GitHub
+        url: https://github.com/
+        type: primary
+        has_subnav: false
+  footer:
+    content: "&copy; Stackbit-Libris. All rights reserved."
+    links:
+      - label: Made with Stackbit
+        url: https://www.stackbit.com
+        type: link
+        new_window: true
+    has_social: true
+    social_links:
+      - label: Twitter
+        url: https://twitter.com/
+        type: icon
+        icon_class: fa-twitter
+        new_window: true
+      - label: LinkedIn
+        url: https://www.linkedin.com/
+        type: icon
+        icon_class: fa-linkedin
+        new_window: true
+      - label: GitHub
+        url: https://github.com/
+        type: icon
+        icon_class: fa-github
+        new_window: true
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css

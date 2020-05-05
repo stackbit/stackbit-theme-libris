@@ -1,6 +1,5 @@
 /**
  * General
- * ----------------------------------------------------------------------------
  */
 html {
   font-family: _font(primary);
@@ -10,7 +9,7 @@ html {
 body {
   background: _palette(bg);
   color: _palette(primary);
-  line-height: 1.875;
+  line-height: 1.75;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -20,8 +19,8 @@ a {
   border-bottom: 1px solid currentColor;
   color: _palette(accent);
   text-decoration: none;
-  -webkit-transition: border-color .3s ease, color .3s ease;
-  transition: border-color .3s ease, color .3s ease;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
 
   &:hover,
   &:focus {
@@ -47,27 +46,27 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.5em;
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: 2.125em;
 }
 
 h3 {
-  font-size: 1.875rem;
+  font-size: 1.875em;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
 
 h6 {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 
 p {
@@ -90,7 +89,7 @@ ins {
 pre {
   background: _palette(bg);
   border-radius: 3px;
-  color: _palette(primary);
+  color: _palette(secondary);
   font-family: _font(monospace);
   font-size: 0.875rem;
   line-height: 1.5;
@@ -107,15 +106,15 @@ pre {
 :not(pre) > code {
   background: _palette(bg);
   border-radius: 3px;
-  font-size: 0.875rem;;
+  font-size: 0.875rem;
   padding: 0.1em;
   white-space: normal;
 }
 
 blockquote {
   border-left: 5px solid _palette(accent);
-  font-size: 1.5rem;
-  line-height: 1.3;
+  font-size: 1.5em;
+  line-height: 1.33333;
   margin: 1.5em 0;
   padding-left: 1em;
 
@@ -178,7 +177,8 @@ hr {
 
 table {
   line-height: 1.5;
-  margin: 0 0 1.875em;
+  margin: 0;
+  max-width: 100%;
   text-align: left;
   width: 100%;
 }
@@ -202,12 +202,18 @@ th {
   font-weight: bold;
 }
 
-.post-content {
-  table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+.responsive-table {
+  display: block;
+  margin: 0 0 1.875em;
+  overflow-x: auto;
+  width: 100%;
+}
+
+:not(.responsive-table) > table {
+  display: block;
+  margin: 0 0 1.875em;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
   tbody,
   thead {
@@ -225,7 +231,10 @@ th {
 
 /* Form fields */
 label {
+  color: _palette(secondary);
   font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0.25em;
 }
 
 input[type=checkbox]+label,
@@ -239,16 +248,17 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="number"],
 input[type="search"],
 input[type="url"],
 select,
 textarea {
-  background: transparent;
+  background: #fff;
   border: 1px solid _palette(border);
   border-radius: 3px;
   box-shadow: none;
   box-sizing: border-box;
-  color: inherit;
+  color: _palette(primary);
   display: block;
   font-size: 16px;
   font-weight: normal;
@@ -262,35 +272,36 @@ textarea {
   }
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="search"],
-input[type="url"],
-select {
-  height: 3em;
+.form-group {
+  margin-bottom: 1em;
 }
 
+.form-submit {
+  margin-top: 1.66667em;
+}
+
+/* Buttons */
 button,
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
-a.button {
+.button {
   background-color: _palette(accent);
-  border: 3px solid _palette(accent);
-  border-radius: 25px;
+  border: 2px solid _palette(accent);
+  border-radius: 1.75em;
   box-sizing: border-box;
   color: #fff;
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: bold;
-  height: 3.25em;
-  letter-spacing: 0.025em;
-  line-height: 1.5;
-  padding: 0.25em 40px;
-  -webkit-transition: background-color .3s, color .3s, box-shadow .3s;
-  transition: background-color .3s, color .3s, box-shadow .3s;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  padding: 0.8em 2.75em;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  vertical-align: middle;
 
   &:hover,
   &:focus,
@@ -301,16 +312,65 @@ a.button {
   }
 }
 
-a.button {
-  height: auto;
-  padding-bottom: 0.64285em;
-  padding-top: 0.64285em;
+.button-secondary {
+  background-color: transparent;
+  color: _palette(accent);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: _palette(accent);
+    color: #fff;
+  }
 }
 
-.button {
-  &.secondary {
-    background: transparent;
+.button-icon {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: 0;
+  border: 0;
+  color: inherit;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1em;
+  font-weight: normal;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  letter-spacing: normal;
+  padding: 0.25em 0;
+
+  .icon {
+    height: 1em;
+    min-width: 1em;
+    text-align: center;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: _palette(accent);
+  }
+}
+
+.has-gradient {
+  .button {
+    background-color: #fff;
     border-color: #fff;
+    color: _palette(accent);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      color: #fff;
+    }
+  }
+
+  .button-secondary {
+    background-color: transparent;
     color: #fff;
 
     &:hover,
@@ -342,16 +402,20 @@ a.button {
   color: _palette(meta);
 }
 
-:-moz-placeholder {
-  color: _palette(meta);
-}
-
 ::-moz-placeholder {
   color: _palette(meta);
   opacity: 1;
 }
 
 :-ms-input-placeholder {
+  color: _palette(meta);
+}
+
+::-ms-input-placeholder {
+  color: _palette(meta);
+}
+
+::placeholder {
   color: _palette(meta);
 }
 
@@ -393,21 +457,23 @@ img {
 }
 
 /* Background gradient */
-.bg-gradient {
+.has-gradient {
   background: _palette(accent);
   background: -webkit-linear-gradient(left,_palette(accent-alt), _palette(accent));
   background: linear-gradient(to right, _palette(accent-alt), _palette(accent));
+  color: #fff;
+  position: relative;
 }
 
 /* Background Image */
 .bg-img {
-  -webkit-animation: fadeIn .75s ease-in-out;
-  animation: fadeIn .75s ease-in-out;
+  -webkit-animation: fadeIn20 .75s ease-in-out;
+  animation: fadeIn20 .75s ease-in-out;
   background-position: center;
   background-size: cover;
   bottom: 0;
   left: 0;
-  opacity: 0.15;
+  opacity: 0.2;
   position: absolute;
   right: 0;
   top: 0;
@@ -428,9 +494,63 @@ img {
   }
 }
 
+/* Grid */
+.grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+}
+
+.grid-item {
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+}
+
+.grid-col-2 {
+  .grid-item {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+.grid-col-3 {
+  .grid-item {
+    -ms-flex-preferred-size: 33.333%;
+    flex-basis: 33.333%;
+    max-width: 33.333%;
+  }
+}
+
+.grid-swap {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.grid-middle {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.grid-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 /* Text meant only for screen readers */
-.screen-reader-text,
-.site-logo + .site-title {
+.screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -441,12 +561,84 @@ img {
 }
 
 /* Clearing floats */
-.post-content:after {
-  clear: both;
+.post-content {
+  &:after {
+    clear: both;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
 }
 
-.post-content:before,
-.post-content:after {
-  content: "";
-  display: table;
+@media only screen and (max-width: 1000px) {
+  .grid {
+    margin-left: -1.5vw;
+    margin-right: -1.5vw;
+  }
+
+  .grid-item {
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .grid-col-3 {
+    .grid-item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 1.875rem 0 0.9375rem;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.75em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  h4 {
+    font-size: 1.25em;
+  }
+
+  h5 {
+    font-size: 1.125em;
+  }
+
+  h6 {
+    font-size: 1em;
+  }
+
+  blockquote {
+    font-size: 1.25em;
+    line-height: 1.5;
+  }
+
+  .grid-col-2 {
+    .grid-item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
 }

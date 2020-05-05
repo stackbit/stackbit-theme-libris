@@ -1,6 +1,5 @@
 /**
  * Docs
- * ----------------------------------------------------------------------------
  */
 .docs-content {
   padding-top: 2.5em;
@@ -63,7 +62,7 @@
     background: #fff;
     border: 1px solid _palette(border);
     border-radius: 5px;
-    box-shadow: 0 10px 20px -10px rgba(0,0,0,.1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
     padding: 2.5em 0;
   }
@@ -248,8 +247,8 @@
 
 @media only screen and (min-width: 801px) {
   .docs-content {
+    display: -webkit-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     padding-top: 3.75em;
   }
@@ -301,7 +300,7 @@
     background: #fff;
     border: 1px solid _palette(border);
     border-radius: 5px;
-    box-shadow: 0 10px 20px -10px rgba(0,0,0,.1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
     margin-bottom: 5%;
     padding: 0.75em 1em;
@@ -331,7 +330,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .post.type-docs {
     .post-title,
     .post-content {

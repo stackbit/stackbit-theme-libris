@@ -1,10 +1,6 @@
 ---
 title: Welcome to Libris
-menus:
-  main:
-    weight: 2
-    title: Docs
-template: docs
+layout: docs
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt id ante id varius. Fusce a gravida dolor.

@@ -1,0 +1,8 @@
+{% set action = include_dict.action %}
+<a {{ classNames({'button': action.type != 'link', 'button-secondary': action.type == 'secondary', 'button-icon': action.type == 'icon'}) }} href="{{ action.url | relative_url }}"{% if action.new_window %} target="_blank" rel="noopener"{% endif %}>
+  {% if action.type == 'icon' and action.icon_class %}
+  <span class="icon fab {{ action.icon_class }}" aria-hidden="true"></span><span class="screen-reader-text">{{ action.label }}</span>
+  {% else %}
+  {{ action.label }}
+  {% endif %}
+</a>

@@ -1,28 +1,35 @@
 ---
 title: Showcase
-subtitle: >-
-  This is an optional page subtitle
-img_path: images/5.jpg
-items:
-  - title: Exto
-    subtitle: A portfolio theme for Unibit 
-    preview_img: images/6.jpg
-    url: "https://exto-test-1.netlify.com/"
-  - title: Fresh
-    subtitle: A personal theme for Unibit
-    preview_img: images/7.jpg
-    url: "https://themes.stackbit.com/demos/fresh/"
-  - title: Fjord
-    subtitle: A minimal blogging theme for Unibit
-    preview_img: images/8.jpg
-    url: "https://themes.stackbit.com/demos/fjord/"
-  - title: Ampersand
-    subtitle: Medium inspired blogging theme
-    preview_img: images/9.jpg
-    url: "https://themes.stackbit.com/demos/ampersand/"
-menus:
-  layouts:
-    weight: 2
+sections:
+  - section_id: hero
+    type: section_hero
     title: Showcase
-template: showcase
+    image: images/5.jpg
+    content: |-
+      This is an optional page subtitle
+  - section_id: showcase
+    type: section_grid
+    col_number: three
+    grid_items:
+      - title: Exto
+        title_url: "https://themes.stackbit.com/demos/exto/"
+        image: images/6.jpg
+        content: |-
+          A portfolio theme for Unibit
+      - title: Fresh
+        title_url: "https://themes.stackbit.com/demos/fresh/"
+        image: images/7.jpg
+        content: |-
+          A personal theme for Unibit
+      - title: Fjord
+        title_url: "https://themes.stackbit.com/demos/fjord/"
+        image: images/8.jpg
+        content: |-
+          A minimal blogging theme for Unibit
+      - title: Ampersand
+        title_url: "https://themes.stackbit.com/demos/ampersandexto/"
+        image: images/9.jpg
+        content: |-
+          Medium inspired blogging theme for Unibit
+layout: advanced
 ---

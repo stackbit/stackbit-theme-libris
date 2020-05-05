@@ -3,9 +3,9 @@ title: New Conference
 excerpt: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac ut consequat semper viverra nam libero justo laoreet sit.
 date: 2019-03-10
-thumb_img_path: images/2.jpg
-content_img_path: images/2.jpg
-template: post
+thumb_image: images/2.jpg
+image: images/2.jpg
+layout: post
 ---
 
 **Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac ut consequat semper viverra nam libero justo laoreet sit. Tincidunt id aliquet risus feugiat in ante. Non diam phasellus vestibulum lorem sed. Morbi quis commodo odio aenean. 

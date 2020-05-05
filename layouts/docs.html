@@ -2,8 +2,7 @@
 
 {% block content %}
 
-  <div class="outer">
-    <div class="inner">
+  <div class="inner outer">
       <div class="docs-content">
         {% set include_dict = {"page": page, "site": site} %}
         {% include "docs_menu.html" %}
@@ -39,6 +38,5 @@
         </nav><!-- .page-nav -->
       </div><!-- .docs-content -->
     </div><!-- .inner-->
-  </div><!-- .outer -->
 
 {% endblock %}

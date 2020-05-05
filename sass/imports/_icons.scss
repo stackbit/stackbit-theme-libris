@@ -1,6 +1,5 @@
 /**
  * Custom Icons
- * ----------------------------------------------------------------------------
  */
 .icon-menu,
 .icon-close {
@@ -27,12 +26,14 @@
   }
 }
 
-.icon-menu:before {
-  top: -6px;
-}
+.icon-menu {
+  &:before {
+    top: -6px;
+  }
 
-.icon-menu:after {
-  bottom: -6px;
+  &:after {
+    bottom: -6px;
+  }
 }
 
 .icon-close {
@@ -50,97 +51,6 @@
     top: 0;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-  }
-}
-
-.icon-arrow-left,
-.icon-arrow-right {
-  background: currentColor;
-  color: inherit;
-  height: 2px;
-  left: 50%;
-  margin-top: -1px;
-  position: absolute;
-  top: 50%;
-  width: 12px;
-
-  &:before {
-    content: "";
-    height: 0;
-    margin-top: -4px;
-    position: absolute;
-    top: 50%;
-    width: 0;
-  }
-}
-
-.icon-arrow-left {
-  margin-left: -4px;
-
-  &:before {
-    border-bottom: 4px solid transparent;
-    border-right: 4px solid currentColor;
-    border-top: 4px solid transparent;
-    left: -4px;
-  }
-}
-
-.icon-arrow-right {
-  margin-left: -8px;
-
-  &:before {
-    border-bottom: 4px solid transparent;
-    border-left: 4px solid currentColor;
-    border-top: 4px solid transparent;
-    right: -4px;
-  }
-}
-
-.block-item-cta a,
-.read-more-link {
-  display: inline-block;
-  padding-right: 24px;
-  position: relative;
-
-  .icon-arrow-right {
-    left: 100%;
-    margin-left: -16px;
-    -webkit-transition: width .3s ease;
-    transition: width .3s ease;
-  }
-
-  &:hover,
-  &:focus {
-    .icon-arrow-right {
-      width: 18px;
-    }
-  }
-}
-
-.pagination {
-  .button {
-    position: relative;
-  }
-
-  @media only screen and (min-width: 481px) {
-    .newer-posts {
-      padding-right: 20px;
-    }
-  
-    .icon-arrow-left {
-      left: 20px;
-      margin-left: 0;
-    }
-  
-    .older-posts {
-      padding-left: 20px;
-    }
-  
-    .icon-arrow-right {
-      left: auto;
-      margin-left: 0;
-      right: 20px;
-    }
   }
 }
 

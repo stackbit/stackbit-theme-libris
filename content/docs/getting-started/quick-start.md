@@ -1,7 +1,7 @@
 ---
 title: Quick Start
 weight: 2
-template: docs
+layout: docs
 ---
 
 <div class="note">

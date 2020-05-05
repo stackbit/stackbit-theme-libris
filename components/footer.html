@@ -2,15 +2,21 @@
   <div class="inner">
     <div class="site-footer-inside">
       <p class="site-info">
-        {{ site.data.footer.content | safe }}
-        &nbsp;
-        {% for link in site.data.footer.links %}
-        <a href="{{ link.url }}" {% if link.new_window %}target="_blank" rel="noopener"
-          {% endif %}>{{ link.text }}</a>.
+        {% if site.params.footer.content %}
+        <span class="copyright">{{ site.params.footer.content | safe }}</span>
+        {% endif %}
+        {% for action in site.params.footer.links %}
+          {% set include_dict = {'action': action} %}
+          {% include "action_link.html" %}
         {% endfor %}
       </p><!-- .site-info -->
-      {% if site.data.footer.has_social %}
-        {% include "social.html" %}
+      {% if site.params.footer.has_social %}
+      <div class="social-links">
+        {% for action in site.params.footer.social_links %}
+          {% set include_dict = {'action': action} %}
+          {% include "action_link.html" %}
+        {% endfor %}
+      </div><!-- .social-links -->
       {% endif %}
     </div><!-- .site-footer-inside -->
   </div><!-- .inner -->

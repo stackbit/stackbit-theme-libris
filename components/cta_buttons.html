@@ -1,5 +1,4 @@
-<div class="block-item-cta">
-  {% for action in include_dict.actions %}
-  <a href="{{ action.url | relative_url }}">{{ action.label }} <span class="icon-arrow-right" aria-hidden="true"></span></a>
-  {% endfor %}
-</div>
+{% set actions = include_dict.actions %}
+{% for action in actions %}
+<a {{ classNames({'button': action.type == 'primary' or action.type == 'secondary', 'button-secondary': action.type == 'secondary' }) }} href="{{ action.url | relative_url }}" {% if action.new_window %}target="_blank" rel="noopener"{% endif %}>{{ action.label }}</a>
+{% endfor %}

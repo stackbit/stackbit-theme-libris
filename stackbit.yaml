@@ -32,8 +32,12 @@ metadata:
 models:
   config:
     type: config
-    label: Global Site Config
+    label: Site Configuration
     fields:
+      - type: string
+        name: description
+        label: Site Description
+        description: The default site description used in meta data.
       - type: enum
         name: palette
         label: Palette
@@ -61,106 +65,59 @@ models:
           - type: palette
             name: violet
             label: Violet
-  author:
-    type: data
-    file: author.json
-    label: Author
-    fields:
-      - type: string
-        name: name
-        label: Name
-      - type: string
-        name: email
-        label: Email
-      - type: image
-        name: avatar
-        label: Avatar
-  header:
-    type: data
-    file: header.yml
-    label: Header
-    fields:
-      - type: string
-        name: title
-        label: Header Title
-        description: The title displayed in the header if no logo image added.
-      - type: image
-        name: logo_img
-        label: Logo Image
-        description: The logo image displayed in the header.
-      - type: string
-        name: url
-        label: Header Title/Logo URL
-        description: The url of the header title/logo.
-      - type: boolean
-        name: has_nav
-        label: Enable Navigation Menu
-        description: Display the navigation menu bar in the header.
-        default: true
-  footer:
-    type: data
-    file: footer.yml
-    label: Footer
-    fields:
-      - type: string
-        name: content
-        label: Footer Content
-        description: The copyright text displayed in the footer.
-      - type: list
-        name: links
-        label: Links
-        description: A list of links displayed in the footer.
-        items:
-          type: object
-          labelField: text
-          fields:
-            - type: string
-              name: text
-              label: Link text
-            - type: string
-              name: url
-              label: URL
-              widget: url
-            - type: boolean
-              name: new_window
-              label: Open in new window
-              default: true
-      - type: boolean
-        name: has_social
-        label: Enable Social Links
-        description: Display social links in the footer.
-        default: true
-  social:
-    type: data
-    file: social.json
-    label: Social Links
-    fields:
-      - type: list
-        name: links
-        label: Social Links
-        description: A list of social links displayed in the footer.
-        items:
-          type: object
-          labelField: title
-          fields:
-            - type: string
-              name: type
-              label: Type
-              hidden: true
-            - type: string
-              name: title
-              label: Title
-              required: true
-            - type: string
-              name: icon
-              label: Icon
-              description: Font Awesome icon class name.
-              required: true
-            - type: string
-              name: url
-              label: URL
-              widget: url
-              required: true
+      - type: object
+        name: header
+        label: Header Configuration
+        fields:
+          - type: string
+            name: title
+            label: Header Title
+            description: The title displayed in the header if no logo image added.
+          - type: image
+            name: logo_img
+            label: Logo
+            description: The logo image displayed in the header.
+          - type: string
+            name: url
+            label: Header Title (Logo) URL
+            description: >-
+              The URL of the header title (logo). Useful if you want the header title (logo) link to another URL, rather than the home page.
+          - type: boolean
+            name: has_nav
+            label: Enable Navigation Menu
+            description: Display the navigation menu bar in the header.
+            default: true
+          - type: list
+            name: nav_links
+            label: Navigation Links
+            description: List of navigation links.
+            items:
+              type: action_menu
+      - type: object
+        name: footer
+        label: Footer Configuration
+        fields:
+          - type: string
+            name: content
+            label: Footer Content
+            description: The copyright text displayed in the footer.
+          - type: list
+            name: links
+            label: Links
+            description: List of links in the footer.
+            items:
+              type: action
+          - type: boolean
+            name: has_social
+            label: Enable Social Links
+            description: Display social links in the footer.
+            default: true
+          - type: list
+            name: social_links
+            label: Social Links
+            description: List of social links in the footer.
+            items:
+              type: action
   doc_sections:
     type: data
     file: doc_sections.yml
@@ -186,7 +143,7 @@ models:
   docs:
     type: page
     label: Documentation Pages
-    template: docs
+    layout: docs
     fields:
       - type: string
         name: title
@@ -199,43 +156,44 @@ models:
         name: weight
         label: Weight
         description: >-
-          The navigation order of the documentation page. This value is ignored
-          for parent section pages.
+          The navigation order of the documentation page. This value is ignored for parent section pages.
       - type: string
         name: excerpt
         label: Excerpt
         description: >-
-          Short description of the documentation section. This value is used in
-          overview page and is ignored for child section pages.
-  home:
+          Short description of the documentation section. This value is used in documentation overview section and meta data.
+  advanced:
     type: page
-    label: Home
-    template: home
-    file: index.md
+    label: Advanced Page
+    layout: advanced
     hideContent: true
-    singleInstance: true
     fields:
       - type: string
         name: title
         label: Title
         description: The title of the page.
         required: true
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
       - type: list
         name: sections
         label: Sections
-        description: Home page sections.
+        description: Page sections
         items:
           type: reference
           labelField: title
           models:
-            - contentblock
-            - ctablock
-            - featuresblock
-            - heroblock
-  blog:
+            - section_content
+            - section_cta
+            - section_docs
+            - section_grid
+            - section_hero
+  blog: 
     type: page
     label: Blog
-    template: blog
+    layout: blog
     file: blog/index.md
     hideContent: true
     singleInstance: true
@@ -249,91 +207,18 @@ models:
         name: subtitle
         label: Subtitle
         description: The text shown just below the page title.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown in the background of the page header.
-  overview:
-    type: page
-    label: Overview
-    template: overview
-    file: overview.md
-    hideContent: true
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
-      - type: string
-        name: subtitle
-        label: Subtitle
-        description: The text shown just below the page title.
-      - type: image
-        name: img_path
-        label: Image
-        description: The image shown in the background of the page header.
-      - type: list
-        name: sections
-        label: Sections
-        description: Home page sections.
-        items:
-          type: reference
-          labelField: title
-          models:
-            - contentblock
-            - ctablock
-  showcase:
-    type: page
-    label: Showcase
-    template: showcase
-    file: showcase.md
-    hideContent: true
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-        required: true
-      - type: string
-        name: subtitle
-        label: Subtitle
-        description: The text shown just below the page title.
-      - type: image
-        name: img_path
-        label: Image
-        description: The image shown in the background of the page header.
-      - type: list
-        name: items
-        label: Items
-        description: Showcase items.
-        items:
-          type: object
-          label: item
-          labelField: title
-          fields:
-            - type: string
-              name: title
-              label: Title
-              description: The title of the item.
-            - type: string
-              name: subtitle
-              label: Subtitle
-              description: The subtitle of the item.
-            - type: image
-              name: preview_img
-              label: Preview Image
-              description: The preview image of the item.
-            - type: string
-              name: url
-              label: URL
-              description: The URL of the item.
   page:
     type: page
     label: Page
-    template: page
+    layout: page
     exclude: posts/**
     fields:
       - type: string
@@ -345,14 +230,18 @@ models:
         name: subtitle
         label: Subtitle
         description: The text shown just below the page title.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown below the page title and subtitle.
   post:
     type: page
     label: Post
-    template: post
+    layout: post
     folder: posts
     fields:
       - type: string
@@ -369,17 +258,17 @@ models:
         label: Date
         required: true
       - type: image
-        name: thumb_img_path
+        name: thumb_image
         label: Featured Image
         description: The image shown in the blog feed.
       - type: image
-        name: content_img_path
+        name: image
         label: Alt Featured Image
         description: The image shown in the header background in the single post.
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the post displayed in the blog feed.
+        description: The excerpt of the post displayed in the blog feed and in meta data.
   section:
     type: object
     label: Section
@@ -392,40 +281,40 @@ models:
       - type: string
         name: section_id
         label: Element ID
-      - type: string
-        name: component
-        label: Component
-        required: true
-        hidden: true
-  contentblock:
+        description: A unique identifier that can be used when linking to this section. Must not contain whitespace.
+  section_content:
     type: object
     label: Content Section
     extends:
       - section
     fields:
-      - name: component
-        default: content_block.html
-      - type: markdown
-        name: content
-        label: Content
-        description: The text content of the section.
       - type: image
         name: image
         label: Image
         description: The image of the section.
+      - type: enum
+        name: image_position
+        label: Image Position
+        description: The position of the image in the section.
+        options:
+          - left
+          - right
+        default: left
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
       - type: list
         name: actions
         label: Action Buttons
         items:
           type: action
-  ctablock:
+  section_cta:
     type: object
-    label: Call to Action Section
+    label: CTA Section
     extends:
       - section
     fields:
-      - name: component
-        default: cta_block.html
       - type: string
         name: subtitle
         label: Subtitle
@@ -435,54 +324,89 @@ models:
         label: Action Buttons
         items:
           type: action
-  featuresblock:
+  section_docs:
     type: object
-    label: Features Section
+    label: Documentation Overview Section
     extends:
       - section
     fields:
-      - name: component
-        default: features_block.html
       - type: string
         name: subtitle
         label: Subtitle
         description: The subtitle of the section.
+      - type: enum
+        name: col_number
+        label: Columns
+        description: The number of documentation sections in a row.
+        options:
+          - two
+          - three
+        default: three
+        required: true
+  section_grid:
+    type: object
+    label: Grid Section
+    extends:
+      - section
+    fields:
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section.
+      - type: enum
+        name: col_number
+        label: Columns
+        description: The number of grid items in a row.
+        options:
+          - two
+          - three
+        default: three
+        required: true
       - type: list
-        name: featureslist
-        label: Features List
+        name: grid_items
+        label: Grid Items
         items:
-          type: object
-          label: Feature
-          labelField: title
-          fields:
-            - type: string
-              name: title
-              label: Title
-            - type: markdown
-              name: content
-              label: Content
-              description: The text content of the feature.
-            - type: list
-              name: actions
-              label: Action Buttons
-              items:
-                type: action
-  heroblock:
+          type: grid_item
+  section_hero:
     type: object
     label: Hero Section
     extends:
       - section
     fields:
-      - name: component
-        default: hero_block.html
-      - type: markdown
-        name: content
-        label: Content
-        description: The text content of the section.
       - type: image
         name: image
         label: Image
         description: The image shown in the background of the section.
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+  grid_item:
+    type: object
+    label: Grid Item
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the grid item.
+      - type: string
+        name: title_url
+        label: Title URL
+        description: The URL of the item title.
+      - type: image
+        name: image
+        label: Image
+        description: The image of the grid item.
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the grid item.
       - type: list
         name: actions
         label: Action Buttons
@@ -497,11 +421,44 @@ models:
         name: label
         label: Label
         required: true
-        description: The text displayed inside the button.
       - type: string
         name: url
-        label: Button URL
+        label: URL
+        required: true
         widget: url
+      - type: enum
+        name: type
+        label: Type
+        options:
+          - link
+          - primary
+          - secondary
+          - icon
+        default: link
+        required: true
+      - type: string
+        name: icon_class
+        label: Icon
+        description: Font Awesome icon class name. Used only when type is "icon".
+      - type: boolean
+        name: new_window
+        label: Open in new tab/window
+        default: false
+  action_menu:
+    type: object
+    label: Parent Action
+    extends:
+      - action
+    fields:
+      - type: boolean
+        name: has_subnav
+        label: Has Sub-Navigation
+        default: false
+      - type: list
+        name: subnav_links
+        label: Sub-Navigation Links
+        items:
+          type: action
   palette:
     type: object
     label: Palette

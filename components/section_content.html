@@ -1,0 +1,30 @@
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block block-text outer">
+  <div class="inner">
+    <div {{ classNames('grid', 'grid-middle', 'grid-center', {'grid-swap': section.image and section.image_position == 'right'}) }}>
+      {% if section.image %}
+      <div class="grid-item block-image">
+        <img src="{{ section.image | relative_url }}" alt="{{ section.title }}" />
+      </div>
+      {% endif %}
+      <div class="grid-item block-body">
+        {% if section.title %}
+        <div class="block-header">
+          <h2 class="block-title">{{ section.title }}</h2>
+        </div>
+        {% endif %}
+        {% if section.content %}
+        <div class="block-content">
+          {{ section.content | markdownify }}
+        </div>
+        {% endif %}
+        {% if section.actions %}
+        <div class="block-buttons">
+          {% set include_dict = {'actions': section.actions} %}
+          {% include "cta_buttons.html" %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section><!-- .block -->

@@ -1,0 +1,26 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  <article class="post post-full">
+    <header class="post-header has-gradient outer">
+      {% if page.params.image %}
+      <div class="bg-img" style="background-image: url('{{ page.params.image | relative_url }}')"></div>
+      {% endif %}
+      <div class="inner-sm">
+        <h1 class="post-title">{{ page.params.title }}</h1>
+        {% if page.params.subtitle %}
+        <div class="post-subtitle">
+          {{ page.params.subtitle | safe }}
+        </div>
+        {% endif %}
+      </div>
+    </header>
+    <div class="inner-md outer">
+      <div class="post-content">
+        {{ page.content }}
+      </div>
+    </div><!-- .inner-md -->
+  </article><!-- .post -->
+
+{% endblock %}

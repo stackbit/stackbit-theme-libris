@@ -2,26 +2,28 @@
   <div class="inner">
     <div class="site-header-inside">
       <div class="site-branding">
-        {% if site.data.header.logo_img %}
-        <p class="site-logo">
-          <a href="{{ site.data.header.url | default('/', true) | relative_url }}">
-            <img src="{{ site.data.header.logo_img | relative_url }}" alt="Logo" />
-          </a>
-        </p><!-- .site-logo -->
-        {% endif %}
-        {% if page.template == "home" %}
-        <h1 class="site-title"><a href="{{ site.data.header.url | default('/', true) | relative_url }}">{{ site.data.header.title }}</a></h1>
+        {% if site.params.header.logo_img %}
+        <p class="site-logo"><a href="{{ site.params.header.url | default('/', true) | relative_url }}"><img src="{{ site.params.header.logo_img | relative_url }}" alt="{{ site.params.header.title }}" /></a></p>
         {% else %}
-        <p class="site-title"><a href="{{ site.data.header.url | default('/', true) | relative_url }}">{{ site.data.header.title }}</a></p>
+        <p class="site-title"><a href="{{ site.params.header.url | default('/', true) | relative_url }}">{{ site.params.header.title }}</a></p>
         {% endif %}
       </div><!-- .site-branding -->
-      {% if site.menus.main and site.data.header.has_nav %}
+      {% if site.params.header.has_nav %}
       <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
         <div class="site-nav-inside">
           <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
-          {% set menu = site.menus.main %}
-          {% set include_dict = {"menu": menu, "menu_class": "menu", "page": page} %}
-          {% include "menu.html" %}
+          <ul class="menu">
+            {% for action in site.params.header.nav_links %}
+            <li {{ classNames('menu-item', { 'has-children': action.has_subnav and action.subnav_links, 'current': page.url == action.url, 'menu-button': action.type != 'link' }) }}>
+              {% set include_dict = {'action': action} %}
+              {% include "action_link.html" %}
+              {% if action.has_subnav and action.subnav_links %}
+                {% set include_dict = {"submenu": action.subnav_links, "menu_class": "submenu", "page": page} %}
+                {% include "submenu.html" %}
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
         </div><!-- .site-nav-inside -->
       </nav><!-- .site-navigation -->
       <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>

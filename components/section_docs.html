@@ -1,0 +1,37 @@
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" {{ classNames('block', 'block-grid', 'outer', {'has-header': section.title or section.subtitle}) }}>
+  <div class="inner">
+    {% if section.title or section.subtitle %}
+    <div class="block-header inner-sm">
+      {% if section.title %}
+      <h2 class="block-title">{{ section.title }}</h2>
+      {% endif %}
+      {% if section.subtitle %}
+      <p class="block-subtitle">{{ section.subtitle | safe }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+    <div class="block-content">
+      <div {{ classNames('grid', {'grid-col-2': section.col_number == 'two', 'grid-col-3': section.col_number == 'three'}) }}>
+        {% for doc_section in site.data.doc_sections.sections %}
+          {% set doc_section_folder = site.data.doc_sections.root_folder | append(doc_section) %}
+          {% set doc_section_page_path = doc_section_folder | append("/index.md") %}
+          {% set doc_section_page = getPage(doc_section_page_path) %}
+          <div class="grid-item">
+            <div class="grid-item-inside">
+              <h3 class="grid-item-title line-left"><a href="{{ doc_section_page.url | relative_url }}">{{ doc_section_page.title }}</a></h3>
+              {% if doc_section_page.excerpt %}
+              <div class="grid-item-content">
+                <p>{{ doc_section_page.excerpt | safe }}</p>
+              </div>
+              {% endif %}
+              <div class="grid-item-buttons">
+                <a href="{{ doc_section_page.url | relative_url }}">Learn More</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section><!-- .block -->

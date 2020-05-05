@@ -1,6 +1,5 @@
 /**
  * Structure
- * ----------------------------------------------------------------------------
  */
 .outer {
   padding-left: 3vw;
@@ -13,18 +12,33 @@
   max-width: 1200px;
 }
 
-.inner-medium {
+.inner-md {
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
 }
 
-.inner-small {
+.inner-sm {
   margin-left: auto;
   margin-right: auto;
   max-width: 680px;
 }
 
 .site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
   position: relative;
+}
+
+.site-content {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: 100%;
 }
