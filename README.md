@@ -50,7 +50,7 @@ All documentation pages must be located inside the `content/docs` folder. You ca
 - Parent section pages: `docs/<section_name>/index.md`
 - Child section pages: `docs/<section_name>/<page_name>.md` 
 
-Documentation pages should contain the following front matter. `title` and `template` are required. 
+Documentation pages should contain the following front matter. `title` and `layout` are required. 
 
 ```
 ---
@@ -58,14 +58,14 @@ Documentation pages should contain the following front matter. `title` and `temp
   label navigation menu items.
 - `weight`: defines the order of the child section page. This field is ignored
   for parent section pages.
-- `template`: docs
+- `layout`: docs
 - `excerpt`: Can be defined on a parent section pages to render the description
   of the section in the Overview page (`overview.html`). This field is ignored
   for child section pages. 
 ---
 ```
 
-All page inside the `content/docs` folder should use the `docs` layout (`templates/docs.html`).
+All page inside the `content/docs` folder should use the `docs` layout (`layouts/docs.html`).
 This layout is responsible for rendering the documentation navigation menu and
 uses several properties to control its appearance: 
 
@@ -120,7 +120,7 @@ documentation sections:
     ---
     title: Overview
     weight: 1           # position guides/overview first
-    template: docs
+    layout: docs
     ---
    
 `content/docs/guides/features.md`:
@@ -128,7 +128,7 @@ documentation sections:
     ---
     title: Features
     weight: 2           # position guides/features second
-    template: docs
+    layout: docs
     ---
 
 `data/doc_sections.yml`:
@@ -183,39 +183,23 @@ The homepage content uses `content/index.md`. You can edit all of the homepage s
 
 ## Main Navigation
 
-The items of the main menu located at the top can be defined either inside the page front matter or inside the `config.yml` file.
+The items of the main menu located at the top can be defined inside the `config.yml` file.
 
-To add a page menu item, you should define the `menus` parametter in the front matter of the page. For instance:
+To add a menu item, you should define it inside the `nav_links` field. For instance:
 
-    ---
-    title: Welcome to Libris
-    menus:
-      main:
-        weight: 2
-        title: Docs
-    template: docs
-    ---
+    nav_links:
+      - label: Home
+        url: /
+        type: link
+        has_subnav: false
 
-To add a global menu item, you should define it inside the root `menus` field inside `config.yml`. For instance:
+## Additional Layouts
 
-    menus:
-      main:
-        - identifier: github
-          title: GitHub
-          url: "https://github.com/"
-          weight: 6
-
-## Additional Templates
-
-Besides the usual templates (`blog`, `page`, `post`) and documentation templatee mentioned above (`docs`), there are two
-additional templates that can be used for pages:
-
-- `overview` - used to list all the documentation sections in a neat grid.
-- `showcase` - used to showcase the users of your product.
+Besides the usual layouts (`blog`, `page`, `post`) and documentation layout mentioned above (`docs`), there is an additional layout `advanced` that can be used for pages.
 
 ## Social Links
 
-To display social icons in the footer, update the `social.json` file located in the `data` folder. You can use any icon supported by [Font Awesome](https://fontawesome.com/icons?d=gallery&s=brands) and just need to specify the appropriate Font Awesome class name as the `icon` value.
+To display social icons in the footer, define them inside the `social_links` field inside the `config.yml` file. You can use any icon supported by [Font Awesome](https://fontawesome.com/icons?d=gallery&s=brands) and just need to specify the appropriate Font Awesome class name as the `icon_class` value.
 
 ## Color palettes
 
