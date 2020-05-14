@@ -30,7 +30,7 @@ Compile a production build into the `public` folder.
 unibit build
 ```
 
-### Develop Locally using CodeSandbox
+### Develop using CodeSandbox
 
 You can also develop this theme in the browser using Unibit via CodeSandbox.
 
