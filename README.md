@@ -1,6 +1,6 @@
 # Libris
 
-A sleek SaaS theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris)
+A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris)
 
 ### About Stackbit
 
