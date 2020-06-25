@@ -171,6 +171,7 @@ models:
     type: page
     label: Documentation Pages
     layout: docs
+    folder: docs
     fields:
       - type: string
         name: title
