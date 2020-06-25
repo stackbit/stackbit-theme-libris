@@ -28,57 +28,57 @@ params:
     nav_links:
       - label: Home
         url: /
-        type: link
+        style: link
         has_subnav: false
       - label: Docs
         url: /docs/
-        type: link
+        style: link
         has_subnav: false
       - label: Blog
         url: /blog/
-        type: link
+        style: link
         has_subnav: false
       - label: Sample Pages
         url: "#"
-        type: link
+        style: link
         has_subnav: true
         subnav_links:
           - label: Overview
             url: /overview/
-            type: link
+            style: link
           - label: Showcase
             url: /showcase/
-            type: link
+            style: link
       - label: Style Guide
         url: /style-guide/
-        type: link
+        style: link
         has_subnav: false
       - label: GitHub
         url: https://github.com/
-        type: primary
+        style: primary
         has_subnav: false
   footer:
     content: "&copy; Stackbit-Libris. All rights reserved."
     links:
       - label: Made with Stackbit
         url: https://www.stackbit.com
-        type: link
+        style: link
         new_window: true
     has_social: true
     social_links:
       - label: Twitter
         url: https://twitter.com/
-        type: icon
+        style: icon
         icon_class: fa-twitter
         new_window: true
       - label: LinkedIn
         url: https://www.linkedin.com/
-        type: icon
+        style: icon
         icon_class: fa-linkedin
         new_window: true
       - label: GitHub
         url: https://github.com/
-        type: icon
+        style: icon
         icon_class: fa-github
         new_window: true
 sass:

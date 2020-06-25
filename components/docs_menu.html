@@ -16,7 +16,7 @@
           {% set section_folder = site.data.doc_sections.root_folder | append(section) %}
           {% set section_page_path = section_folder | append("/index.md") %}
           {% set section_page = getPage(section_page_path) %}
-          {% set child_pages = getPages(section_folder) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
+          {% set child_pages = getPages(section_folder) | sort(false, true, "weight") %}
           {% set child_count = child_pages | length %}
           {% set has_children = true if child_count > 0 else false %}
           {% set is_current_page = true if page.relPath == section_page.relPath else false %}

@@ -14,7 +14,7 @@
           <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
           <ul class="menu">
             {% for action in site.params.header.nav_links %}
-            <li {{ classNames('menu-item', { 'has-children': action.has_subnav and action.subnav_links, 'current': page.url == action.url, 'menu-button': action.type != 'link' }) }}>
+            <li {{ classNames('menu-item', { 'has-children': action.has_subnav and action.subnav_links, 'current': page.url == action.url, 'menu-button': action.style != 'link' }) }}>
               {% set include_dict = {'action': action} %}
               {% include "action_link.html" %}
               {% if action.has_subnav and action.subnav_links %}

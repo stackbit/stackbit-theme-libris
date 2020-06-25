@@ -17,7 +17,7 @@
               {% set current_page_path = "/" | append(page.relPath) %}
               {% if root_page_path != current_page_path %}
                 {% set child_pages_path = "/" | append(page.relDir) %}
-                {% set child_pages = getPages(child_pages_path) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
+                {% set child_pages = getPages(child_pages_path) | sort(false, true, "weight") %}
                 {% set child_count = child_pages | length %}
                 {% set has_children = true if child_count > 0 else false %}
                 {% if has_children %}

@@ -18,6 +18,6 @@ sections:
     actions:
       - label: Get Started
         url: "/docs/getting-started/index.html"
-        type: primary
+        style: primary
 layout: advanced
 ---

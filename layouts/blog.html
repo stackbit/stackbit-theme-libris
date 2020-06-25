@@ -16,7 +16,7 @@
 
   <div class="inner-md outer">
     <div class="post-feed">
-      {% set display_posts = getPages("/posts") | sort(true, true, "date") %}
+      {% set display_posts = getPages("/blog") | sort(true, true, "date") %}
       {% for post in display_posts %}
       <article class="post">
         {% if post.params.thumb_image %}
