@@ -31,11 +31,11 @@ params:
         style: link
         has_subnav: false
       - label: Docs
-        url: /docs/
+        url: /docs
         style: link
         has_subnav: false
       - label: Blog
-        url: /blog/
+        url: /blog
         style: link
         has_subnav: false
       - label: Sample Pages
@@ -44,13 +44,13 @@ params:
         has_subnav: true
         subnav_links:
           - label: Overview
-            url: /overview/
+            url: /overview
             style: link
           - label: Showcase
-            url: /showcase/
+            url: /showcase
             style: link
       - label: Style Guide
-        url: /style-guide/
+        url: /style-guide
         style: link
         has_subnav: false
       - label: GitHub

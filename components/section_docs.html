@@ -14,9 +14,8 @@
     <div class="block-content">
       <div {{ classNames('grid', {'grid-col-2': section.col_number == 'two', 'grid-col-3': section.col_number == 'three'}) }}>
         {% for doc_section in site.data.doc_sections.sections %}
-          {% set doc_section_folder = site.data.doc_sections.root_folder | append(doc_section) %}
-          {% set doc_section_page_path = doc_section_folder | append("/index.md") %}
-          {% set doc_section_page = getPage(doc_section_page_path) %}
+          {% set doc_section_path = site.data.doc_sections.root_docs_path | path_join(doc_section) %}
+          {% set doc_section_page = getPage(doc_section_path) %}
           <div class="grid-item">
             <div class="grid-item-inside">
               <h3 class="grid-item-title line-left"><a href="{{ doc_section_page.url | relative_url }}">{{ doc_section_page.title }}</a></h3>

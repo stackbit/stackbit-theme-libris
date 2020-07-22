@@ -151,13 +151,14 @@ models:
     label: Documentation Sections
     fields:
       - type: string
-        name: root_folder
-        label: Root Folder
+        name: root_docs_path
+        label: Root Documentation URL Path
         description: >-
-          The path under which the documentation pages will be generated. For
-          example, set to "/" to put all documentation pages at root, or set to
-          "/docs/" to put all documentation pages under "/docs/".
-        default: /docs/
+          The URL path under which the documentation pages will be generated. For
+          example, value "/" will place all documentation pages at the site root,
+          while value "/docs" will place all documentation pages under the "/docs"
+          path.
+        default: /docs
         required: true
       - type: list
         name: sections
@@ -218,7 +219,7 @@ models:
             - section_docs
             - section_grid
             - section_hero
-  blog: 
+  blog:
     type: page
     label: Blog
     layout: blog
