@@ -18,6 +18,7 @@
               {% set include_dict = {'action': action} %}
               {% include "action_link.html" %}
               {% if action.has_subnav and action.subnav_links %}
+                <button class="submenu-toggle"><span class="icon-angle-right" aria-hidden="true"></span><span class="screen-reader-text">Sub-menu</span></button>
                 {% set include_dict = {"submenu": action.subnav_links, "menu_class": "submenu", "page": page} %}
                 {% include "submenu.html" %}
               {% endif %}

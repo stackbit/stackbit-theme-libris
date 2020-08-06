@@ -206,10 +206,6 @@
   .page-nav-title {
     font-size: 1rem;
     margin: 0 0 0.625rem;
-
-    &:only-child {
-      display: none;
-    }
   }
 
   ul {
@@ -242,6 +238,14 @@
     &:focus {
       color: _palette(accent);
     }
+  }
+}
+
+.page-nav-inside {
+  display: none;
+
+  &.has-links {
+    display: block;
   }
 }
 

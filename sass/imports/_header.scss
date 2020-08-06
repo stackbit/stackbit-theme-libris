@@ -58,7 +58,7 @@
 .menu-item {
   position: relative;
 
-  &.current-menu-item {
+  &.current {
     color: _palette(accent);
   }
 
@@ -285,10 +285,6 @@
     border-top: 1px solid _palette(border);
     display: none;
     padding-left: 15px;
-  
-    &.active {
-      display: block;
-    }
   }
 
   .menu-item {
@@ -341,6 +337,19 @@
       &.active .icon-angle-right {
         -webkit-transform: rotate(135deg);
         transform: rotate(135deg);
+      }
+    }
+
+    &.active {
+      .submenu-toggle {
+        .icon-angle-right {
+          -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+        }
+      }
+
+      .submenu {
+        display: block;
       }
     }
   }
