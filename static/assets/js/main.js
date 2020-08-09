@@ -27,9 +27,6 @@ function submenuToggleHandler(e) {
 }
 
 window.addMainNavigationHandlers = function() {
-  // Remove nav related classes on page load
-  document.body.classList.remove('menu--opened');
-
   const menuToggle = document.querySelectorAll('.menu-toggle');
   if (menuToggle) {
     for (let i = 0; i < menuToggle.length; i++) {
@@ -46,6 +43,9 @@ window.addMainNavigationHandlers = function() {
 };
 
 window.removeMainNavigationHandlers = function() {
+  // Remove nav related classes on page load
+  document.body.classList.remove('menu--opened');
+
   const menuToggle = document.querySelectorAll('.menu-toggle');
   if (menuToggle) {
     for (let i = 0; i < menuToggle.length; i++) {
@@ -62,9 +62,6 @@ window.removeMainNavigationHandlers = function() {
 };
 
 window.addDocsNavigationHandlers = function() {
-  // Remove docs nav related classes on page load
-  document.body.classList.remove('docs-menu--opened');
-
   const docsNavToggle = document.getElementById('docs-nav-toggle');
   if (docsNavToggle) {
     docsNavToggle.addEventListener('click', docsNavToggleHandler, false);
@@ -79,6 +76,9 @@ window.addDocsNavigationHandlers = function() {
 };
 
 window.removeDocsNavigationHandlers = function() {
+  // Remove docs nav related classes on page load
+  document.body.classList.remove('docs-menu--opened');
+
   const docsNavToggle = document.getElementById('docs-nav-toggle');
   if (docsNavToggle) {
     docsNavToggle.removeEventListener('click', docsNavToggleHandler, false);
