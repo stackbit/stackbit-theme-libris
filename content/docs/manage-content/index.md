@@ -74,7 +74,7 @@ a:hover {
 
 ## Callouts
 
-There are two types of callouts availabale in this theme, **important** and **note**.
+There are two types of callouts available in this theme, **important** and **note**.
 
 <div class="important">
   <strong>Important:</strong> 
