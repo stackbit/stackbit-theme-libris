@@ -1,8 +1,11 @@
+{% set page = include_dict.page %}
 <ul class="{{ include_dict.menu_class }}">
-  {% for action in include_dict.submenu %}
-  <li {{ classNames('menu-item', { 'current': include_dict.page.url == action.url, 'menu-button': action.style != 'link' }) }}>
+{% for action in include_dict.submenu %}
+  {% set page_url = page.url | trim('/') %}
+  {% set action_url = action.url | trim('/') %}
+  <li {{ classNames('menu-item', { 'current': page_url == action_url, 'menu-button': action.style != 'link' }) }}>
     {% set include_dict = {'action': action} %}
     {% include "action_link.html" %}
   </li>
-  {% endfor %}
+{% endfor %}
 </ul>

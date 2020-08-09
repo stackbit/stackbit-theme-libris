@@ -1,6 +1,8 @@
 baseurl: "/"
 title: "Stackbit Libris Theme"
-page_load_js: "assets/js/main.js"
+init_is: "assets/js/main.js"
+page_load_js: "assets/js/page-load.js"
+page_unload_js: "assets/js/page-unload.js"
 params:
   description: A documentation theme
   palette: blue
