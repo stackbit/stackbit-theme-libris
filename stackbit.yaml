@@ -7,6 +7,11 @@ uploadDir: images
 dataDir: data
 pagesDir: content
 pageLayoutKey: layout
+logicFields:
+  - doc_sections.root_docs_path
+  - doc_sections.sections
+  - palette.sass.accent1
+  - palette.sass.accent2
 metadata:
   title: Libris
   description: A documentation theme
@@ -29,9 +34,6 @@ metadata:
       images:
         small: images/demo-256x192.png
         large: images/demo-1024x768.png
-logicFields:
-  - doc_sections.root_docs_path
-  - doc_sections.sections
 pageData:
   - pagePath: "/"
     initialExpandedPaths:
