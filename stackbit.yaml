@@ -249,6 +249,14 @@ models:
         name: image
         label: Image
         description: The image shown in the background of the page header.
+      - type: boolean
+        name: has_more_link
+        label: Show read more link
+        description: Display the read more link in the post feed
+        default: true
+      - type: string
+        name: more_link_text
+        label: Read more link label
   page:
     type: page
     label: Page

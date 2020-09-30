@@ -29,8 +29,12 @@
           <h2 class="post-title line-left"><a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.params.title }}</a></h2>
         </header>
         {% if post.params.excerpt %}
-        <p class="post-excerpt">{{ post.params.excerpt }}</p>
-        <p class="read-more"><a href="{{ post.url | relative_url }}" class="read-more-link">Read More</a></p>
+            <p class="post-excerpt">{{ post.params.excerpt }}</p>
+            {% if page.params.has_more_link == true and page.params.more_link_text %}
+            <p class="read-more">
+              <a class="read-more-link" href="{{ post.url | relative_url }}">{{ page.params.more_link_text }}</a>
+            </p>
+            {% endif %}
         {% endif %}
       </article><!-- .post -->
     {% endfor %}
