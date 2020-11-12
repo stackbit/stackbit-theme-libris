@@ -10,6 +10,7 @@ pageLayoutKey: layout
 logicFields:
   - doc_sections.root_docs_path
   - doc_sections.sections
+  - docs.weight
   - palette.sass.accent1
   - palette.sass.accent2
 metadata:
