@@ -60,12 +60,8 @@ params:
         style: primary
         has_subnav: false
   footer:
-    content: "&copy; Stackbit-Libris. All rights reserved."
-    links:
-      - label: Made with Stackbit
-        url: https://www.stackbit.com
-        style: link
-        new_window: true
+    content: >-
+      &copy; Stackbit. All rights reserved. This Jamstack site was created on <a href="https://www.stackbit.com" target="_blank" rel="noopener">Stackbit</a>. Get yours <a href="https://app.stackbit.com/create?theme=libris" target="_blank" rel="noopener">here</a>.
     has_social: true
     social_links:
       - label: Twitter
