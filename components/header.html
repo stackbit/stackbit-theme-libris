@@ -3,7 +3,7 @@
     <div class="site-header-inside">
       <div class="site-branding">
         {% if site.params.header.logo_img %}
-        <p class="site-logo"><a href="{{ site.params.header.url | default('/', true) | relative_url }}"><img src="{{ site.params.header.logo_img | relative_url }}" alt="{{ site.params.header.title }}" /></a></p>
+        <p class="site-logo"><a href="{{ site.params.header.url | default('/', true) | relative_url }}"><img src="{{ site.params.header.logo_img | relative_url }}" alt="{{ site.params.header.logo_img_alt }}" /></a></p>
         {% else %}
         <p class="site-title"><a href="{{ site.params.header.url | default('/', true) | relative_url }}">{{ site.params.header.title }}</a></p>
         {% endif %}

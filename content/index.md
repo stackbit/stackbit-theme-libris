@@ -29,7 +29,7 @@ sections:
           - label: View Posts
             url: "/blog"
             style: link
-      - title: Style Guides
+      - title: Style Guide
         content: |-
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.
         actions:
@@ -38,7 +38,7 @@ sections:
             style: link
   - section_id: text-img
     type: section_content
-    image: images/10.jpg
+    image: images/jamstack.svg
     image_position: left
     title: A Section With An Image
     content: |-
@@ -50,6 +50,15 @@ sections:
       - label: Get Started
         url: "/docs/getting-started"
         style: secondary
+  - section_id: text-no-img
+    type: section_content
+    title: A Section Without Image
+    content: |-
+      Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
+    actions:
+      - label: Get Started
+        url: "/docs/getting-started/installation"
+        style: primary
   - section_id: features-two-col
     type: section_grid
     title: Sample Layouts
@@ -76,15 +85,6 @@ sections:
     title: The Title of The Call to Action Block
     subtitle: >-
       This is an optional description for the call to action block.
-    actions:
-      - label: Get Started
-        url: "/docs/getting-started/installation"
-        style: primary
-  - section_id: text-no-img
-    type: section_content
-    title: A Section Without Image
-    content: |-
-      Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
     actions:
       - label: Get Started
         url: "/docs/getting-started/installation"

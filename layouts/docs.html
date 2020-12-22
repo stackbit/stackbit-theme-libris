@@ -20,7 +20,7 @@
             {% set child_count = child_pages | length %}
             {% set has_children = true if child_count > 0 else false %}
             {% if has_children %}
-              <ul class="docs-section-items">
+              <ul id="docs-section-items" class="docs-section-items">
                 {% for child_page in child_pages %}
                 <li class="docs-section-item"><a href="{{ child_page.url | relative_url }}" class="docs-item-link">{{ child_page.title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>
                 {% endfor %}

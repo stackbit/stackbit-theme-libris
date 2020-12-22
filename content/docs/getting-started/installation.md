@@ -131,6 +131,8 @@ You can build tables with markdown to help you organize information. To add a ta
 
 We’ve packed this theme with powerful features to help you have awesome documentation for your current or next project.
 
+<br>
+
 **Why not start using this theme today?**
 
 <a href="https://www.stackbit.com/" class="button">Join Stackbit</a>

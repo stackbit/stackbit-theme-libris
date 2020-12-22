@@ -54,11 +54,6 @@ Copy the code and modify these blocks according to your needs.
 
 <hr>
 
-<div class="note">
-  <strong>Note:</strong>
-  Code blocks have copy functionality. To copy the code press the grey button located in the right side top corner.
-</div>
-
 You can create simple code blocks by placing triple backticks <code>```</code> before and after the code block. To render a code block more readable, we recommend placing a blank line before and after code blocks.
 
 <pre>```
@@ -130,6 +125,8 @@ You can build tables with markdown to help you organize information. To add a ta
 <hr>
 
 We’ve packed this theme with powerful features to help you have awesome documentation for your current or next project.
+
+<br>
 
 **Why not start using this theme today?**
 

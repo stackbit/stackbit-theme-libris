@@ -4,7 +4,7 @@
     <div {{ classNames('grid', 'grid-middle', 'grid-center', {'grid-swap': section.image and section.image_position == 'right'}) }}>
       {% if section.image %}
       <div class="grid-item block-image">
-        <img src="{{ section.image | relative_url }}" alt="{{ section.title }}" />
+        <img src="{{ section.image | relative_url }}" alt="{{ section.image_alt }}" />
       </div>
       {% endif %}
       <div class="grid-item block-body">

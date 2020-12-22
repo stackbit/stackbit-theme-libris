@@ -1,16 +1,24 @@
-/**
- * Custom Icons
- */
+// SVG icons
+.icon {
+  color: inherit;
+  fill: currentColor;
+  flex-shrink: 0;
+  height: 1em;
+  line-height: 1;
+  width: 1em;
+}
+
+// CSS icons
 .icon-menu,
 .icon-close {
   background: currentColor;
   border-radius: 1px;
   color: inherit;
   height: 2px;
+  left: 50%;
   margin-top: -1px;
   margin-left: -12px;
   position: absolute;
-  right: 0;
   top: 50%;
   width: 24px;
 
@@ -38,8 +46,8 @@
 
 .icon-close {
   background: 0;
-  margin-left: -15px;
-  width: 30px;
+  margin-left: -14px;
+  width: 28px;
 
   &:before {
     top: 0;

@@ -1,31 +1,14 @@
 baseurl: "/"
 title: "Stackbit Libris Theme"
-init_is: "assets/js/main.js"
+init_js: "assets/js/main.js"
 page_load_js: "assets/js/page-load.js"
 page_unload_js: "assets/js/page-unload.js"
 params:
-  description: A documentation theme
   palette: blue
-  palettes:
-    blue:
-      sass:
-        accent1: "#00c6ff"
-        accent2: "#0072ff"
-    green:
-      sass:
-        accent1: "#12db5d"
-        accent2: "#11998e"
-    navy:
-      sass:
-        accent1: "#004e92"
-        accent2: "#000428"
-    violet:
-      sass:
-        accent1: "#8e2de2"
-        accent2: "#4a00e0"
   header:
     title: Libris
     logo_img: images/logo.svg
+    logo_img_alt: Libris logo
     has_nav: true
     nav_links:
       - label: Home
@@ -67,17 +50,17 @@ params:
       - label: Twitter
         url: https://twitter.com/
         style: icon
-        icon_class: fa-twitter
+        icon_class: twitter
         new_window: true
       - label: LinkedIn
         url: https://www.linkedin.com/
         style: icon
-        icon_class: fa-linkedin
+        icon_class: linkedin
         new_window: true
       - label: GitHub
         url: https://github.com/
         style: icon
-        icon_class: fa-github
+        icon_class: github
         new_window: true
 sass:
   input_file: sass/main.scss.njk
@@ -85,3 +68,5 @@ sass:
   indentWidth: 4
   outputStyle: nested
   precision: 10
+templates:
+  body_class: "palette-{{ site.params.palette }}"

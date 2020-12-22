@@ -11,30 +11,14 @@ logicFields:
   - doc_sections.root_docs_path
   - doc_sections.sections
   - docs.weight
-  - palette.sass.accent1
-  - palette.sass.accent2
 metadata:
   title: Libris
   description: A documentation theme
   author: Stackbit
   authorURL: 'https://www.stackbit.com'
-  palettes:
-    blue:
-      images:
-        small: images/demo-256x192.png
-        large: images/demo-1024x768.png
-    green:
-      images:
-        small: images/demo-256x192.png
-        large: images/demo-1024x768.png
-    navy:
-      images:
-        small: images/demo-256x192.png
-        large: images/demo-1024x768.png
-    violet:
-      images:
-        small: images/demo-256x192.png
-        large: images/demo-1024x768.png
+  images:
+    small: images/demo-256x192.png
+    large: images/demo-1024x768.png
 pageData:
   - pagePath: "/"
     initialExpandedPaths:
@@ -50,41 +34,21 @@ models:
     type: config
     label: Site Configuration
     fields:
-      - type: string
-        name: description
-        label: Site Description
-        description: The default site description used in meta data.
+      - type: image
+        name: favicon
+        label: Favicon
+        description: A square icon that represents your website
       - type: enum
         name: palette
-        label: Palette
-        description: The palette of the theme.
+        label: Color Palette
+        description: The color palette of the site
         options:
           - blue
           - green
           - navy
           - violet
         default: blue
-      - type: object
-        name: palettes
-        label: Palettes
-        hidden: true
-        fields:
-          - type: model
-            name: blue
-            label: Blue
-            models: [palette]
-          - type: model
-            name: green
-            label: Green
-            models: [palette]
-          - type: model
-            name: navy
-            label: Navy
-            models: [palette]
-          - type: model
-            name: violet
-            label: Violet
-            models: [palette]
+        required: true
       - type: model
         name: header
         label: Header Configuration
@@ -101,25 +65,30 @@ models:
       - type: string
         name: title
         label: Header Title
-        description: The title displayed in the header if no logo image added.
+        description: The title displayed in the header if no logo image added
       - type: image
         name: logo_img
         label: Logo
-        description: The logo image displayed in the header.
+        description: The logo image displayed in the header
+      - type: string
+        name: logo_img_alt
+        label: Logo Alt Text
+        description: The alt text of the logo image
       - type: string
         name: url
         label: Header Title (Logo) URL
         description: >-
-          The URL of the header title (logo). Useful if you want the header title (logo) link to another URL, rather than the home page.
+          The URL of the header title (logo). Useful if you want
+          the header title (logo) link to another URL, rather than the home page.
       - type: boolean
         name: has_nav
         label: Enable Navigation Menu
-        description: Display the navigation menu bar in the header.
+        description: Display the navigation menu bar in the header
         default: true
       - type: list
         name: nav_links
         label: Navigation Links
-        description: List of navigation links.
+        description: List of navigation links
         items:
           type: model
           models: [action_menu]
@@ -131,23 +100,23 @@ models:
       - type: string
         name: content
         label: Footer Content
-        description: The copyright text displayed in the footer.
+        description: The copyright text displayed in the footer
       - type: list
         name: links
         label: Links
-        description: List of links in the footer.
+        description: List of links in the footer
         items:
           type: model
           models: [action]
       - type: boolean
         name: has_social
         label: Enable Social Links
-        description: Display social links in the footer.
+        description: Display social links in the footer
         default: true
       - type: list
         name: social_links
         label: Social Links
-        description: List of social links in the footer.
+        description: List of social links in the footer
         items:
           type: model
           models: [action]
@@ -186,7 +155,7 @@ models:
         label: Title
         description: >-
           The title of the page, used both as a page title and as a navigation
-          menu title.
+          menu title
         required: true
       - type: number
         name: weight
@@ -212,7 +181,7 @@ models:
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the page displayed in meta data.
+        description: The excerpt of the page displayed in meta data
       - type: list
         name: sections
         label: Sections
@@ -238,20 +207,20 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the page.
+        description: The title of the page
         required: true
       - type: string
         name: subtitle
         label: Subtitle
-        description: The text shown just below the page title.
+        description: The text shown just below the page title
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the page displayed in meta data.
+        description: The excerpt of the page displayed in meta data
       - type: image
         name: image
-        label: Image
-        description: The image shown in the background of the page header.
+        label: Background Image
+        description: The image shown in the background of the page header
       - type: boolean
         name: has_more_link
         label: Show read more link
@@ -269,20 +238,20 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the page.
+        description: The title of the page
         required: true
       - type: string
         name: subtitle
         label: Subtitle
-        description: The text shown just below the page title.
+        description: The text shown just below the page title
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the page displayed in meta data.
+        description: The excerpt of the page displayed in meta data
       - type: image
         name: image
-        label: Image
-        description: The image shown below the page title and subtitle.
+        label: Background Image
+        description: The image shown in the background of the page header
   post:
     type: page
     urlPath: "/blog/{slug}"
@@ -298,23 +267,27 @@ models:
       - type: string
         name: subtitle
         label: Subtitle
-        description: The text shown just below the post title.
+        description: The text shown just below the post title
       - type: date
         name: date
         label: Date
         required: true
       - type: image
         name: thumb_image
-        label: Featured Image
-        description: The image shown in the blog feed.
+        label: Image (blog feed)
+        description: The image shown in the blog feed
+      - type: string
+        name: thumb_image_alt
+        label: Image alt text (blog feed)
+        description: The alt text of the blog feed image
       - type: image
         name: image
-        label: Alt Featured Image
-        description: The image shown in the header background in the single post.
+        label: Background Image (single post)
+        description: The image shown in the background of the single post header
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the post displayed in the blog feed and in meta data.
+        description: The excerpt of the post displayed in the blog feed and in meta data
   section:
     type: object
     label: Section
@@ -326,8 +299,8 @@ models:
         description: The title of the section.
       - type: string
         name: section_id
-        label: Element ID
-        description: A unique identifier that can be used when linking to this section. Must not contain whitespace.
+        label: Section ID
+        description: A unique identifier of the section, must not contain whitespace
   section_content:
     type: object
     label: Content Section
@@ -337,11 +310,15 @@ models:
       - type: image
         name: image
         label: Image
-        description: The image of the section.
+        description: The image of the section
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the section image
       - type: enum
         name: image_position
         label: Image Position
-        description: The position of the image in the section.
+        description: The position of the secton image
         options:
           - left
           - right
@@ -349,7 +326,7 @@ models:
       - type: markdown
         name: content
         label: Content
-        description: The text content of the section.
+        description: The text content of the section
       - type: list
         name: actions
         label: Action Buttons
@@ -365,7 +342,7 @@ models:
       - type: string
         name: subtitle
         label: Subtitle
-        description: The subtitle of the section.
+        description: The subtitle of the section
       - type: list
         name: actions
         label: Action Buttons
@@ -381,11 +358,11 @@ models:
       - type: string
         name: subtitle
         label: Subtitle
-        description: The subtitle of the section.
+        description: The subtitle of the section
       - type: enum
         name: col_number
         label: Columns
-        description: The number of documentation sections in a row.
+        description: The number of documentation sections in a row
         options:
           - two
           - three
@@ -400,11 +377,11 @@ models:
       - type: string
         name: subtitle
         label: Subtitle
-        description: The subtitle of the section.
+        description: The subtitle of the section
       - type: enum
         name: col_number
         label: Columns
-        description: The number of grid items in a row.
+        description: The number of grid items in a row
         options:
           - two
           - three
@@ -425,11 +402,11 @@ models:
       - type: image
         name: image
         label: Image
-        description: The image shown in the background of the section.
+        description: The image shown in the background of the section
       - type: markdown
         name: content
         label: Content
-        description: The text content of the section.
+        description: The text content of the section
       - type: list
         name: actions
         label: Action Buttons
@@ -444,19 +421,23 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the grid item.
+        description: The title of the item
       - type: string
         name: title_url
         label: Title URL
-        description: The URL of the item title.
+        description: The URL of the item title
       - type: image
         name: image
         label: Image
-        description: The image of the grid item.
+        description: The image of the item
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the item image
       - type: markdown
         name: content
         label: Content
-        description: The text content of the grid item.
+        description: The text content of the item
       - type: list
         name: actions
         label: Action Buttons
@@ -487,14 +468,29 @@ models:
           - icon
         default: link
         required: true
-      - type: string
+      - type: enum
         name: icon_class
         label: Icon
-        description: Font Awesome icon class name. Used only when style is "icon".
+        options:
+          - dev
+          - facebook
+          - github
+          - instagram
+          - linkedin
+          - pinterest
+          - reddit
+          - twitter
+          - vimeo
+          - youtube
       - type: boolean
         name: new_window
         label: Open in new tab/window
         default: false
+      - type: boolean
+        name: no_follow
+        label: No follow
+        default: false
+        description: 'Add rel="nofollow" attribute to the link'
   action_menu:
     type: object
     label: Parent Action
@@ -511,20 +507,6 @@ models:
         items:
           type: model
           models: [action]
-  palette:
-    type: object
-    label: Palette
-    fields:
-      - type: object
-        name: sass
-        label: SASS
-        fields:
-          - type: color
-            name: accent1
-            label: accent 1
-          - type: color
-            name: accent2
-            label: accent 2
 stackbit_banner:
   show_banner: true
   name: Libris

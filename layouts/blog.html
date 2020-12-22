@@ -20,7 +20,7 @@
       {% for post in display_posts %}
       <article class="post">
         {% if post.params.thumb_image %}
-        <a class="post-thumbnail" href="{{ post.url | relative_url }}"><img src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.title }}" /></a>
+        <a class="post-thumbnail" href="{{ post.url | relative_url }}"><img src="{{ post.params.thumb_image | relative_url }}" alt="{{ page.params.thumb_image_alt }}" /></a>
         {% endif %}
         <header class="post-header">
           <div class="post-meta">
@@ -39,14 +39,6 @@
       </article><!-- .post -->
     {% endfor %}
     </div><!-- .post-feed -->
-
-    <!-- Pagination TBD -->
-    <!--
-    <nav class="pagination">
-      <a class="newer-posts" href="#">Newer</a>
-      <a class="older-posts" href="#">Older</a>
-    </nav>
-    -->
 
   </div><!-- .inner-md -->
 

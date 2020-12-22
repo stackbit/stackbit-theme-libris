@@ -1,88 +1,102 @@
-/**
- * Docs
- */
 .docs-content {
   padding-top: 2.5em;
 }
 
-.post.type-docs {
-  margin-bottom: 5.625em;
-  max-width: 800px;
+.post {
+  &.type-docs {
+    margin-bottom: 5.625em;
+    max-width: $container-md;
 
-  h1 {
-    font-size: 1.875rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  }
-
-  h4 {
-    font-size: 1.125rem;
-  }
-
-  h5,
-  h6 {
-    font-size: 1rem;
-  }
-
-  .hash-link {
-    border: 0;
-    color: _palette(meta);
-    display: inline-block;
-    margin-left: -21px;
-    opacity: 0;
-    padding-right: 5px;
-    -webkit-transition: opacity .3s ease;
-    transition: opacity .3s ease;
-
-    .icon-copy {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2367758d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-link'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'%3E%3C/path%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'%3E%3C/path%3E%3C/svg%3E");
-      display: inline-block;
-      height: 16px;
-      width: 16px;
+    h1 {
+      font-size: 1.875em;
     }
-  }
+  
+    h2 {
+      font-size: 1.5em;
+    }
+  
+    h3 {
+      font-size: 1.25em;
+    }
+  
+    h4 {
+      font-size: 1.125em;
+    }
+  
+    h5,
+    h6 {
+      font-size: 1em;
+    }
 
-  h2,
-  h3 {
-    &:hover,
-    &:focus {
-      .hash-link {
-        opacity: 1;
+    .hash-link {
+      float: left;
+      font-size: 1.25rem;
+      height: 1em;
+      line-height: 1;
+      margin-left: -1.1em;
+      opacity: 0;
+      text-align: center;
+      text-decoration: none;
+      -webkit-transition: opacity .2s;
+      transition: opacity .2s;
+      width: 1em;
+
+      &:before {
+        content: "\0023";
+        display: inline-block;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-primary;
       }
     }
-  }
 
-  .post-inside {
-    background: #fff;
-    border: 1px solid _palette(border);
-    border-radius: 5px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-    padding: 2.5em 0;
-  }
-  
-  .post-title {
-    font-size: 1.875rem;
-    margin: 0 0 2.5rem;
-    padding: 0 7%;
-  }
+    h2 {
+      .hash-link {
+        margin-top: 0.22em;
+      }
+    }
 
-  .post-content {
-    padding: 0 7%;
+    h3 {
+      .hash-link {
+        margin-top: 0.1em;
+      }
+    }
+
+    h2,
+    h3 {
+      &:hover,
+      &:focus {
+        .hash-link {
+          opacity: 1;
+        }
+      }
+    }
+
+    .post-inside {
+      background: #fff;
+      border: 1px solid $gray-300;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      padding: 2.5em 0;
+    }
+
+    .post-title {
+      font-size: 1.875em;
+      margin: 0 0 1.25em;
+      padding: 0 1em;
+    }
+
+    .post-content {
+      padding: 0 1.875em;
+    }
   }
 }
 
-.docs-section-items {
+#docs-section-items {
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   list-style: none;
@@ -91,24 +105,26 @@
   padding: 0;
 
   .docs-section-item {
-    -webkit-flex: 1 1 240px;
     -ms-flex: 1 1 240px;
     flex: 1 1 240px;
     margin: 0 0.3125em 0.9375em;
   }
 
   .docs-item-link {
-    border: 1px solid _palette(border);
-    border-radius: 3px;
-    color: _palette(secondary);
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-sm;
+    color: $gray-700;
     display: block;
     font-weight: bold;
     padding: 0.9375em;
     position: relative;
-
+    text-decoration: none;
+    -webkit-transition: border-color .3s ease, color .3s ease;
+    transition: border-color .3s ease, color .3s ease;
+  
     &:hover {
-      border-color: _palette(accent);
-      color: _palette(accent);
+      border-color: $color-primary;
+      color: $color-primary;
     }
   }
 }
@@ -117,28 +133,24 @@
   margin-bottom: 1.875em;
 
   .docs-nav-toggle {
-    color: _palette(secondary);
-    font-size: 1.125rem;
-    height: 30px;
+    color: $gray-700;
+    font-size: 1.125em;
     margin: 0;
     padding-right: 30px;
-    position: relative;
     text-align: left;
     width: 100%;
   }
 
   .docs-submenu-toggle {
-    color: _palette(meta);
-    height: 30px;
+    color: $gray-500;
     position: absolute;
     right: 0;
     top: 0;
-    width: 30px;
   }
 }
 
-.docs-menu {
-  color: _palette(secondary);
+#docs-menu {
+  color: $gray-700;
   font-weight: bold;
   line-height: 1.5;
   list-style: none;
@@ -146,26 +158,30 @@
   padding: 0;
 
   & > .docs-menu-item > a {
-    padding: 0.1875rem 0;
+    padding: 0.1875em 0;
   }
 
   a {
-    border: 0;
     color: inherit;
     display: block;
+    text-decoration: none;
 
-    &:hover,
-    &:focus {
-      color: _palette(accent);
+    &:hover {
+      color: $color-primary;
     }
+  }
+
+  .current,
+  .current-parent {
+    color: $color-primary;
   }
 }
 
 .docs-submenu {
-  border-left: 1px solid _palette(border);
-  color: _palette(primary);
+  border-left: 1px solid $gray-300;
+  color: $gray-600;
   display: none;
-  font-size: 0.875rem;
+  font-size: 0.9375em;
   font-weight: normal;
   list-style: none;
   margin-top: 0.625rem;
@@ -175,11 +191,6 @@
 .docs-menu-item {
   color: inherit;
   margin-bottom: 0.625rem;
-
-  &.current,
-  &.current-parent {
-    color: _palette(accent);
-  }
 
   &.has-children {
     padding-right: 30px;
@@ -200,22 +211,22 @@
   }
 }
 
-.page-nav {
+#page-nav {
   display: none;
 
   .page-nav-title {
-    font-size: 1rem;
-    margin: 0 0 0.625rem;
+    font-size: 1em;
+    margin: 0 0 0.625em;
   }
 
   ul {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     line-height: 1.5;
     list-style: none;
     padding: 0;
 
     ul {
-      border-left: 1px solid _palette(border);
+      border-left: 1px solid $gray-300;
       margin-top: 0.625rem;
       padding-left: 1.25rem;
     }
@@ -225,48 +236,56 @@
     margin-bottom: 0.625rem;
 
     &.active > a {
-      color: _palette(accent);
+      color: $color-primary;
     }
   }
 
   a {
-    color: _palette(primary);
-    border: 0;
+    color: $gray-600;
     display: block;
+    text-decoration: none;
 
-    &:hover,
-    &:focus {
-      color: _palette(accent);
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .page-nav-inside {
+    display: none;
+  
+    &.has-links {
+      display: block;
     }
   }
 }
 
-.page-nav-inside {
-  display: none;
-
-  &.has-links {
-    display: block;
+@media only screen and (min-width: 641px) {
+  .post {
+    &.type-docs {
+      .post-title,
+      .post-content {
+        padding-left: 7%;
+        padding-right: 7%;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 801px) {
   .docs-content {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     padding-top: 3.75em;
   }
 
   .post.type-docs {
-    -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     overflow: hidden;
   }
 
-  .docs-nav,  
+  .docs-nav,
   .page-nav {
-    -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     margin-bottom: 5.625em;
@@ -274,7 +293,7 @@
     .sticky {
       position: -webkit-sticky;
       position: sticky;
-      top: 1.875rem;
+      top: 1.875em;
     }
   }
 
@@ -283,18 +302,18 @@
     width: 12.5em;
   }
 
-  .page-nav {
+  #page-nav {
     padding-left: 1.5em;
     width: 9.5em;
   }
 
-  .docs-nav-toggle {
+  #docs-nav-toggle {
     display: none;
   }
 }
 
 @media only screen and (min-width: 1091px) {
-  .page-nav {
+  #page-nav {
     display: block;
   }
 }
@@ -302,9 +321,9 @@
 @media only screen and (max-width: 800px) {
   .docs-nav {
     background: #fff;
-    border: 1px solid _palette(border);
-    border-radius: 5px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+    border: 1px solid $gray-300;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
     box-sizing: border-box;
     margin-bottom: 5%;
     padding: 0.75em 1em;
@@ -327,18 +346,10 @@
     }
   }
 
-  .docs-menu {
-    border-top: 1px solid _palette(border);
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
+  #docs-menu {
+    border-top: 1px solid $gray-300;
+    margin-top: 1.25em;
+    padding-top: 1.25em;
   }
 }
 
-@media only screen and (max-width: 640px) {
-  .post.type-docs {
-    .post-title,
-    .post-content {
-      padding: 0 2.25rem;
-    }
-  }
-}

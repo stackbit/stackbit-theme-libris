@@ -1,8 +1,13 @@
 {% set action = include_dict.action %}
-<a {{ classNames({'button': action.style != 'link', 'button-secondary': action.style == 'secondary', 'button-icon': action.style == 'icon'}) }} href="{{ action.url | relative_url }}"{% if action.new_window %} target="_blank" rel="noopener"{% endif %}>
+<a href="{{ action.url | relative_url }}"
+  {% if action.new_window %} target="_blank"{% endif %}
+  {% if action.new_window or action.no_follow %} rel="{% if action.new_window %}noopener {% endif %}{% if action.no_follow %}nofollow{% endif %}"{% endif %}
+  {{ classNames({'button': action.style != 'link', 'button-secondary': action.style == 'secondary', 'button-icon': action.style == 'icon'}) }}>
   {% if action.style == 'icon' and action.icon_class %}
-  <span class="icon fab {{ action.icon_class }}" aria-hidden="true"></span><span class="screen-reader-text">{{ action.label }}</span>
+    {% set include_dict = {'icon': action.icon_class} %}
+    {% include "icon.html" %}
+    <span class="screen-reader-text">{{ action.label }}</span>
   {% else %}
-  {{ action.label }}
+    {{ action.label }}
   {% endif %}
 </a>

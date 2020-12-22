@@ -257,7 +257,7 @@ function anchorForId(id) {
   anchor.setAttribute("class", "hash-link");
   anchor.setAttribute("data-scroll", "");
   anchor.href = "#" + id;
-  anchor.innerHTML = '<span class="icon-copy" aria-hidden="true"></span><span class="screen-reader-text">Copy</span>';
+  anchor.innerHTML = '<span class="screen-reader-text">Copy</span>';
   return anchor;
 }
 
