@@ -1,6 +1,6 @@
 # Libris
 
-A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris/blue/)
+A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris/)
 
 Click the button below to use this theme in Gatsby, Hugo or Jekyll via the Stackbit site builder:
 
