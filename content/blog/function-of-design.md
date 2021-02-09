@@ -6,6 +6,32 @@ excerpt: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Laoreet sit amet cursus sit amet dictum sit. Duis ut diam quam nulla porttitor massa id neque.
 date: 2018-01-15
 image: images/1.jpg
+seo:
+  title: The function of design is letting design function
+  description: Vestibulum sed arcu non odio euismod lacinia at quis risus
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: The function of design is letting design function
+      keyName: property
+    - name: og:description
+      value: Vestibulum sed arcu non odio euismod lacinia at quis risus
+      keyName: property
+    - name: og:image
+      value: images/1.jpg
+      keyName: property
+      relativeUrl: true
+    - name: twitter:card
+      value: summary_large_image
+    - name: twitter:title
+      value: The function of design is letting design function
+    - name: twitter:description
+      value: Vestibulum sed arcu non odio euismod lacinia at quis risus
+    - name: twitter:image
+      value: images/1.jpg
+      relativeUrl: true
 layout: post
 ---
 

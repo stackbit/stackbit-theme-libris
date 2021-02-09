@@ -31,5 +31,31 @@ sections:
         image: images/9.jpg
         content: |-
           Medium inspired blogging theme for Unibit
+seo:
+  title: Showcase
+  description: This is the showcase page
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: Showcase
+      keyName: property
+    - name: og:description
+      value: This is the showcase page
+      keyName: property
+    - name: og:image
+      value: images/5.jpg
+      keyName: property
+      relativeUrl: true
+    - name: twitter:card
+      value: summary_large_image
+    - name: twitter:title
+      value: Showcase
+    - name: twitter:description
+      value: This is the showcase page
+    - name: twitter:image
+      value: images/5.jpg
+      relativeUrl: true
 layout: advanced
 ---
