@@ -34,6 +34,10 @@ models:
     type: config
     label: Site Configuration
     fields:
+      - type: string
+        name: domain
+        label: Domain
+        description: The domain of your site, including the protocol, e.g. https://mysite.com/
       - type: image
         name: favicon
         label: Favicon
@@ -166,7 +170,10 @@ models:
         name: excerpt
         label: Excerpt
         description: >-
-          Short description of the documentation section. This value is used in documentation overview section and meta data.
+          Short description of the documentation section. Displayed in documentation overview section.
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   advanced:
     type: page
     label: Advanced Page
@@ -178,10 +185,6 @@ models:
         label: Title
         description: The title of the page.
         required: true
-      - type: string
-        name: excerpt
-        label: Excerpt
-        description: The excerpt of the page displayed in meta data
       - type: list
         name: sections
         label: Sections
@@ -195,6 +198,9 @@ models:
             - section_docs
             - section_grid
             - section_hero
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   blog:
     type: page
     urlPath: "/blog"
@@ -213,10 +219,6 @@ models:
         name: subtitle
         label: Subtitle
         description: The text shown just below the page title
-      - type: string
-        name: excerpt
-        label: Excerpt
-        description: The excerpt of the page displayed in meta data
       - type: image
         name: image
         label: Background Image
@@ -229,6 +231,9 @@ models:
       - type: string
         name: more_link_text
         label: Read more link label
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   page:
     type: page
     label: Page
@@ -244,14 +249,13 @@ models:
         name: subtitle
         label: Subtitle
         description: The text shown just below the page title
-      - type: string
-        name: excerpt
-        label: Excerpt
-        description: The excerpt of the page displayed in meta data
       - type: image
         name: image
         label: Background Image
         description: The image shown in the background of the page header
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   post:
     type: page
     urlPath: "/blog/{slug}"
@@ -287,7 +291,10 @@ models:
       - type: string
         name: excerpt
         label: Excerpt
-        description: The excerpt of the post displayed in the blog feed and in meta data
+        description: The excerpt of the post displayed in the blog feed
+      - type: model
+        name: seo
+        models: [stackbit_page_meta]
   section:
     type: object
     label: Section
@@ -507,6 +514,55 @@ models:
         items:
           type: model
           models: [action]
+  stackbit_page_meta:
+    type: object
+    label: Page meta data
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: 'The page title that goes into the <title> tag'
+        default: ""
+      - type: string
+        name: description
+        label: Description
+        description: 'The page description that goes into the <meta name="description"> tag'
+        default: ""
+      - type: list
+        name: robots
+        label: Robots
+        description: 'The items that go into the <meta name="robots"> tag'
+        items:
+          type: enum
+          options:
+            - all
+            - index
+            - follow
+            - noindex
+            - nofollow
+            - noimageindex
+            - notranslate
+            - none
+          default: all
+      - type: list
+        name: extra
+        label: Extra
+        description: 'Additional definition for specific meta tags such as open-graph, twitter, etc.'
+        items:
+          type: object
+          labelField: name
+          fields:
+            - type: string
+              name: name
+              default: ""
+            - type: string
+              name: value
+              default: ""
+            - type: string
+              name: keyName
+              default: name
+            - type: boolean
+              name: relativeUrl
 stackbit_banner:
   show_banner: true
   name: Libris

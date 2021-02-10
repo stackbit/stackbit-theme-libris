@@ -5,6 +5,32 @@ excerpt: >-
 date: 2019-03-10
 thumb_image: images/2.jpg
 image: images/2.jpg
+seo:
+  title: New Conference
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: New Conference
+      keyName: property
+    - name: og:description
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      keyName: property
+    - name: og:image
+      value: images/2.jpg
+      keyName: property
+      relativeUrl: true
+    - name: twitter:card
+      value: summary_large_image
+    - name: twitter:title
+      value: New Conference
+    - name: twitter:description
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    - name: twitter:image
+      value: images/2.jpg
+      relativeUrl: true
 layout: post
 ---
 

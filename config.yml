@@ -1,8 +1,8 @@
 baseurl: "/"
 title: "Stackbit Libris Theme"
-init_js: "assets/js/main.js"
-page_load_js: "assets/js/page-load.js"
-page_unload_js: "assets/js/page-unload.js"
+init_js: "js/main.js"
+page_load_js: "js/page-load.js"
+page_unload_js: "js/page-unload.js"
 params:
   palette: blue
   header:
@@ -63,8 +63,8 @@ params:
         icon_class: github
         new_window: true
 sass:
-  input_file: sass/main.scss.njk
-  output_file: assets/css/main.css
+  input_file: sass/main.scss
+  output_file: css/main.css
   indentWidth: 4
   outputStyle: nested
   precision: 10
