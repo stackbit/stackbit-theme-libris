@@ -11,7 +11,7 @@ seo:
   description: Vestibulum sed arcu non odio euismod lacinia at quis risus
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: The function of design is letting design function

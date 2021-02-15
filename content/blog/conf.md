@@ -10,7 +10,7 @@ seo:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: New Conference

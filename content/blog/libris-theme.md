@@ -10,7 +10,7 @@ seo:
   description: Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: Introducing The Libris Theme
