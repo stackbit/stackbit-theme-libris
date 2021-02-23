@@ -465,6 +465,7 @@ models:
         label: URL
         required: true
         widget: url
+        default: "#"
       - type: enum
         name: style
         label: Style
